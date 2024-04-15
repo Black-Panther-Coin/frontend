@@ -6,9 +6,10 @@ const NavButtons = () => {
       <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded text-xl">
         Read ClawPaper
       </button>
-      <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded text-xl">
+      {/* <button className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded text-xl">
         Connect Wallet
-      </button>
+      </button> */}
+      <w3m-button />
     </div>
   );
 };
