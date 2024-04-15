@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import NavButtons from "../../components/Buttons/navButtons";
 import PantherLogo from "../../components/PantherLogo/panther";
 
+import { useAccount, useContractWrite} from 'wagmi'
+import { preSaleABI, preSaleAddress } from "../../constants/constants"
+import { parseEther } from 'viem'
+import toast, { Toaster } from 'react-hot-toast';
+import { useWaitForTransaction } from 'wagmi'
+
 const HomePage = () => {
   const backgroundImageUrl = "/src/assets/images/bg.png";
+  const [value, setValue] = useState("")
+
+  const { address } = useAccount()
+
+  const { write, data: writeData } = useContractWrite({
+    address: preSaleAddress,
+    abi: preSaleABI,
+    functionName: 'buyToken',
+    onError:()=>toast.error("An Error Occurred while trying to buy PNTHR")
+  })
+
+  const { isLoading } = useWaitForTransaction({ 
+    hash: writeData?.hash,
+    onSuccess:()=>{
+      toast.success("PNTHR bought successfully, check your wallet address.")
+      setValue("")
+    },
+    onError:()=>toast.error("An Error Occurred")
+  })
+
+  function buyToken() {
+    if(address && value !== "") {
+      write({ args: [parseEther(value.toString())] })
+    } else {
+      toast.error("Ensure you are connected and you have entered a BNB amount.")
+    }
+  }
+
+  const label = isLoading ? "Buying.." : "Buy Now"
+
 
   return (
     <div
@@ -26,8 +62,8 @@ const HomePage = () => {
         <button className="bg-transparent hover:bg-white text-white font-bold py-3 px-6 md:px-8 rounded border border-white my-2 md:my-0 md:mr-4 text-lg md:text-xl">
           View Contract
         </button>
-        <button className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-lg md:text-xl">
-          Buy Now
+        <button onClick={buyToken} className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-lg md:text-xl">
+          {label}
         </button>
         <div className="absolute bottom-0 right-0 mb-8 mr-8 flex flex-col items-center">
           <PantherLogo className="w-16 h-16 md:w-24 md:h-24" />
@@ -36,6 +72,7 @@ const HomePage = () => {
           </span>
         </div>
       </div>
+      <Toaster/>
     </div>
   );
 };

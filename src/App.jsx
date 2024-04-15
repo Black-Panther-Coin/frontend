@@ -17,8 +17,8 @@ const projectId = '45ff7348e614a721653a8d6d577b43da'
 
 // 2. Create wagmiConfig
 const metadata = {
-  name: 'web3-modal-setup',
-  description: 'Web3 Modal Example',
+  name: 'Black Panther Token',
+  description: 'This is black panther token v2.',
 }
 
 const usedChains = [bsc, bscTestnet]
