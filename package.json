@@ -17,13 +17,10 @@
     "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
     "react-hot-toast": "^2.4.1",
     "viem": "^1.21.4",
-    "wagmi": "^1.4.13"
-=======
+    "wagmi": "^1.4.13",
     "react-spring": "^9.7.3"
->>>>>>> 4346ae8c4adb72a1624ba61f9687ba7654c2d5ad
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

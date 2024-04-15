@@ -19,7 +19,10 @@ const HomePage = () => {
     address: preSaleAddress,
     abi: preSaleABI,
     functionName: 'buyToken',
-    onError:()=>toast.error("An Error Occurred while trying to buy PNTHR")
+    onError:(error)=>{
+      console.log("Error", error)
+      toast.error("An Error Occurred while trying to buy PNTHR.")
+    }
   })
 
   const { isLoading } = useWaitForTransaction({ 
@@ -33,7 +36,7 @@ const HomePage = () => {
 
   function buyToken() {
     if(address && value !== "") {
-      write({ args: [parseEther(value.toString())] })
+      write({ value: parseEther(value.toString()) })
     } else {
       toast.error("Ensure you are connected and you have entered a BNB amount.")
     }
@@ -63,9 +66,8 @@ const HomePage = () => {
 
   return (
     <animated.div
-      style={fadeIn}
-      className="relative flex flex-col items-start justify-center min-h-screen w-full bg-gray-100 p-8 bg-cover bg-center font-montserrat"
-      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+    className="relative flex flex-col items-start justify-center min-h-screen w-full bg-gray-100 p-8 bg-cover bg-center font-montserrat"
+    style={{ ...fadeIn, backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <NavButtons />
       <h1 className="text-4xl md:text-6xl lg:text-9xl leading-tight font-bold text-white text-left my-4">
@@ -83,13 +85,23 @@ const HomePage = () => {
         style={buttonAnimation}
         className="mt-4 flex flex-col md:flex-row items-start md:items-center"
       >
-        <button className="bg-transparent hover:bg-white text-white font-bold py-3 px-6 md:px-8 rounded border border-white my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl">
-          View Contract
-        </button>
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          type="number"
+          placeholder="Enter BBN"
+          className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl"
+        />
         <button onClick={buyToken} className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg lg:text-xl">
           {label}
         </button>
       </animated.div>
+      <button
+        className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 px-6 md:px-8 rounded border border-white my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl"
+        style={{ marginTop: "20px" }}
+      >
+        View Contract
+      </button>
       <animated.div
         style={logoAnimation}
         className="absolute bottom-0 right-0 mb-8 mr-8 flex flex-col items-center"
