@@ -89,7 +89,7 @@ const HomePage = () => {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           type="number"
-          placeholder="Enter BBN"
+          placeholder="Enter BNB"
           className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl"
         />
         <button onClick={buyToken} className="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg lg:text-xl">
