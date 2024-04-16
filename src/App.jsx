@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage/homePage";
 import { createWeb3Modal } from '@web3modal/wagmi/react'
 
 import { WagmiConfig,createConfig, configureChains } from 'wagmi'
-import { bsc, bscTestnet } from 'viem/chains'
+import { bsc } from 'viem/chains'
 import {walletConnectProvider, EIP6963Connector} from "@web3modal/wagmi"
 import {publicProvider} from "wagmi/providers/public"
 import {CoinbaseWalletConnector} from "wagmi/connectors/coinbaseWallet"
@@ -21,7 +21,7 @@ const metadata = {
   description: 'This is black panther token v2.',
 }
 
-const usedChains = [bsc, bscTestnet]
+const usedChains = [bsc]
 
 const {chains, publicClient} = configureChains(usedChains, [walletConnectProvider({projectId}), publicProvider()])
 
