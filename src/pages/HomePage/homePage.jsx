@@ -78,9 +78,15 @@ const HomePage = () => {
         Private Sale is <br /> Live
       </h1>
       <p className="mt-4 text-base md:text-lg lg:text-2xl text-white text-center md:text-left">
-        Participate in the private sale of Black Panther ($PNTHR). <br />{" "}
-        <span className="font-bold"> A MEME COIN WITH PURPOSE!</span> <br />{" "}
-        Connect your wallet and buy Black Panther&nbsp;coin&nbsp;(PNTHR)
+        Participate in the private sale of{" "}
+        <span className="font-bold">Black Panther</span>{" "}
+        <span className="text-yellow-500 font-bold">($PNTHR)</span>. <br />{" "}
+        <span className="font-bold">
+          {" "}
+          <span className="text-yellow-500"> A MEME COIN WITH PURPOSE!</span>
+        </span>{" "}
+        <br /> Connect your wallet and buy{" "}
+        <span className="font-bold">Black Panther</span>&nbsp;coin&nbsp;(PNTHR)
       </p>
       <animated.div
         style={buttonAnimation}
@@ -112,7 +118,7 @@ const HomePage = () => {
       >
         <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
         <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
-          BLACKPANTHER ($PNTHR)
+          BLACK PANTHER ($PNTHR)
         </span>
       </animated.div>
       <Toaster />
