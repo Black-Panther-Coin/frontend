@@ -22,14 +22,17 @@ const NavButtons = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center w-full p-4 ${
-        isScrolled ? "bg-purple-300" : ""
+      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center w-full p-4 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-purple-600 shadow-lg" : "bg-transparent"
       }`}
     >
       <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded text-base md:text-lg mb-2 md:mb-0">
         Read ClawPaper
       </button>
-      <w3m-button />
+
+      <button>
+        <w3m-button />
+      </button>
     </div>
   );
 };

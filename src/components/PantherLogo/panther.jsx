@@ -1,13 +1,8 @@
 import React from "react";
+import pantherLogo from "../../assets/panter.png";
 
 const PantherLogo = ({ className }) => {
-  return (
-    <img
-      src="/src/assets/panter.png"
-      alt="Panther Logo"
-      className={className}
-    />
-  );
+  return <img src={pantherLogo} alt="Panther Logo" className={className} />;
 };
 
 export default PantherLogo;
