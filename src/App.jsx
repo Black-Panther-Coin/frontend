@@ -10,7 +10,6 @@ import { publicProvider } from "wagmi/providers/public";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // 1. Get projectId
 const projectId = "45ff7348e614a721653a8d6d577b43da";

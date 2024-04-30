@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
+import { useMediaQuery } from "react-responsive";
 import NavButtons from "../../components/Buttons/navButtons";
 import PantherLogo from "../../components/PantherLogo/panther";
 import backgroundImage from "../../assets/images/bg2.jpg";
@@ -9,6 +10,7 @@ import { parseEther } from "viem";
 import toast, { Toaster } from "react-hot-toast";
 import { useWaitForTransaction } from "wagmi";
 import Footer from "../../components/Footer/footer";
+import Popup from "../../components/Popups/propUps";
 import "./homePage.css";
 
 const HomePage = () => {
@@ -17,7 +19,6 @@ const HomePage = () => {
   const [launchDate, setLaunchDate] = useState(new Date("2024-05-01T00:00:00"));
 
   useEffect(() => {
-    // Hide the pop-up after 30 seconds
     const timeout = setTimeout(() => {
       setShowPopup(false);
     }, 30000);
@@ -27,9 +28,7 @@ const HomePage = () => {
 
   const { address } = useAccount();
 
-  // Remaining time until launch
   const timeUntilLaunch = launchDate - new Date();
-
   const daysRemaining = Math.floor(timeUntilLaunch / (1000 * 60 * 60 * 24));
   const hoursRemaining = Math.floor(
     (timeUntilLaunch % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -72,7 +71,6 @@ const HomePage = () => {
 
   const label = isLoading ? "Buying.." : "Buy Now";
 
-  // Define animations
   const fadeIn = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
@@ -91,9 +89,26 @@ const HomePage = () => {
     config: { duration: 1000, delay: 1000 },
   });
 
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" });
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [isMobile]);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <>
-      <div className="relative">
+      <div className="relative pt-24 pb-28">
+        {" "}
+        {/* Adjusted pb-20 to pb-28 */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
         <img
           src={backgroundImage}
@@ -101,17 +116,34 @@ const HomePage = () => {
           className="w-full h-full object-cover"
         />
         <animated.div
-          className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-transparent font-montserrat md:items-start md:justify-start"
+          className={`absolute inset-0 flex flex-col items-center justify-center  p-8 bg-transparent font-montserrat ${
+            isDesktop ? "md:items-start md:justify-start" : ""
+          }`}
           style={{ ...fadeIn }}
         >
-          <NavButtons />
-          <h1 className="text-4xl mt-12 md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left my-4">
-            Black Panther Token
-          </h1>
-          <h1 className="text-4xl md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left my-4">
+          {!isMobile && (
+            <h1
+              className={`text-4xl mt-${isMobile ? 6 : 12} ${
+                isMobile ? "text-center mb-2" : "md:text-6xl lg:text-8xl"
+              } leading-tight font-bold text-white ${
+                isMobile ? "" : "md:text-left"
+              } my-4`}
+            >
+              Black Panther Token
+            </h1>
+          )}
+          <h1
+            className={`text-4xl ${
+              isMobile ? "text-center  mt-8" : "md:text-left"
+            } md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4`}
+          >
             Private Sale is <br /> Live
           </h1>
-          <p className="mt-4 text-base md:text-lg lg:text-2xl text-white text-center md:text-left">
+          <p
+            className={`mt-4 text-base ${
+              isMobile ? "text-center" : "md:text-left"
+            } md:text-lg lg:text-2xl text-white`}
+          >
             Participate in the private sale of{" "}
             <span className="font-bold">Black Panther</span>{" "}
             <span className=" font-bold">(BPNTHR)</span>. <br />{" "}
@@ -144,55 +176,63 @@ const HomePage = () => {
               {label}
             </button>
           </animated.div>
-          <div className="flex mt-4 flex-col md:flex-row">
-            <button className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 px-6 md:px-8 rounded border border-yellow-500 mr-4 mb-2 md:mb-0 text-base md:text-lg lg:text-xl">
-              View Contract
-            </button>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdS8WXf6paOKK-nAn-BVN6zt4IcJ205Hipj7wIsB5G_9sW-mQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-transparent hover:bg-white hover:text-black text-white font-bold py-3 px-6 md:px-8 rounded border border-yellow-500 text-base md:text-lg lg:text-xl"
-            >
-              Presale Form
-            </a>
-          </div>
+          <div className="text-white font-bold mt-4">{`Launching in: ${launchTimer}`}</div>
+        </animated.div>
+        {!isMobile && (
           <animated.div
             style={logoAnimation}
-            className="absolute bottom-0 right-0 mb-8 mr-8 flex flex-col items-center"
+            className="mt-8 flex flex-col items-center"
           >
             <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
             <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
               BLACK PANTHER (BPNTHR)
             </span>
-          </animated.div>
-          <div className="text-white font-bold mt-4">{`Launching in: ${launchTimer}`}</div>
-          <animated.div className="absolute bottom-4 right-4 text-white font-bold marquee">
-            Note: $BPNTHR tokens bought during the discounted Private Sale
-            period are subject to a 20% fee if sold within the first 60 days of
-            the project Go-live.
-          </animated.div>
-          {showPopup && (
-            <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-70 text-white">
-              <div className="p-6 bg-gray-900 rounded-md shadow-lg max-w-sm text-center">
-                <p className="text-lg font-semibold">
-                  Click on the Presale Form button to fill your wallet details
-                  for the private sales.
-                </p>
-                <button
-                  onClick={() => setShowPopup(false)}
-                  className="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                >
-                  Got it!
-                </button>
-              </div>
+            <div className="flex mt-4">
+              <a href="#" className="mr-4 text-white hover:text-gray-300">
+                YouTube
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCZQnJu5HncWbRJ35Je3y_yQ"
+                className="mr-4 text-white hover:text-gray-300"
+              >
+                Twitter
+              </a>
+              <a
+                href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
+                className="mr-4 text-white hover:text-gray-300"
+              >
+                PancakeSwap
+              </a>
+              <a
+                href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
+                className="mr-4 text-white hover:text-gray-300"
+              >
+                Telegram
+              </a>
+              <a
+                href="https://discord.com/invite/cQHYs5mUwJ"
+                className="mr-4 text-white hover:text-gray-300"
+              >
+                Discord
+              </a>
+              <a
+                href="https://www.tiktok.com/@blackpanthertkn"
+                className="text-white hover:text-gray-300"
+              >
+                TikTok
+              </a>
+              <a
+                href="https://www.tiktok.com/@blackpanthertkn"
+                className="text-white hover:text-gray-300"
+              ></a>
             </div>
-          )}
-
-          <Toaster />
-        </animated.div>
+          </animated.div>
+        )}
       </div>
+      {showPopup && <Popup onClose={handleClosePopup} />}
       <Footer />
+      <NavButtons />
+      <Toaster />
     </>
   );
 };

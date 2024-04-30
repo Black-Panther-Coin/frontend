@@ -21,19 +21,33 @@ const NavButtons = () => {
   }, []);
 
   return (
-    <div
-      className={`fixed top-0 left-0 right-0 flex flex-col md:flex-row justify-between items-center w-full p-4 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-purple-600 shadow-lg" : "bg-transparent"
+    <nav
+      className={`fixed top-0 left-0 right-0 flex justify-between items-center w-full px-8 py-4 z-50 transition-all duration-500 ${
+        isScrolled ? "bg-black shadow-lg" : "bg-transparent"
       }`}
     >
-      <button className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded text-base md:text-lg mb-2 md:mb-0">
-        Read ClawPaper
-      </button>
-
-      <button>
-        <w3m-button />
-      </button>
-    </div>
+      <div className="flex items-center">
+        <button
+          className="text-white text-lg md:text-xl font-semibold hover:text-purple-200 mr-4"
+          onClick={() =>
+            window.open("/src/assets/bpc.clawpaper.v1.1.pdf", "_blank")
+          }
+        >
+          Read ClawPaper
+        </button>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdS8WXf6paOKK-nAn-BVN6zt4IcJ205Hipj7wIsB5G_9sW-mQ/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-lg md:text-xl font-semibold hover:text-purple-200 mr-4"
+        >
+          Presale Form
+        </a>
+        <button className="text-white text-lg md:text-xl font-semibold hover:text-purple-200">
+          <w3m-button />
+        </button>
+      </div>
+    </nav>
   );
 };
 
