@@ -119,7 +119,7 @@ const HomePage = () => {
           }`}
           style={{ ...fadeIn }}
         >
-          <h1 className="text-4xl mt-1 md:mt-16 md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left">
+          <h1 className="text-4xl mt-16 md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left">
             Black Panther Token
           </h1>
           <h1 className="text-4xl text-center md:text-left md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4">
