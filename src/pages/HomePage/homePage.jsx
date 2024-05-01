@@ -94,7 +94,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (isMobile) {
-      document.body.style.overflowY = "hidden";
+      document.body.style.overflowY = "auto"; // Set body overflow to auto to allow scrolling
     } else {
       document.body.style.overflowY = "auto";
     }
@@ -107,8 +107,6 @@ const HomePage = () => {
   return (
     <>
       <div className="relative pt-24 pb-28">
-        {" "}
-        {/* Adjusted pb-20 to pb-28 */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
         <img
           src={backgroundImage}
@@ -134,11 +132,12 @@ const HomePage = () => {
           )}
           <h1
             className={`text-4xl ${
-              isMobile ? "text-center  mt-8" : "md:text-left"
+              isMobile ? "text-center mt-16" : "md:text-left"
             } md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4`}
           >
             Private Sale is <br /> Live
           </h1>
+
           <p
             className={`mt-4 text-base ${
               isMobile ? "text-center" : "md:text-left"
@@ -176,7 +175,7 @@ const HomePage = () => {
               {label}
             </button>
           </animated.div>
-          <div className="text-white font-bold mt-4">{`Launching in: ${launchTimer}`}</div>
+          {/* <div className="text-white font-bold mt-4">{`Launching in: ${launchTimer}`}</div> */}
         </animated.div>
         {!isMobile && (
           <animated.div
@@ -230,7 +229,9 @@ const HomePage = () => {
         )}
       </div>
       {showPopup && <Popup onClose={handleClosePopup} />}
-      <Footer />
+      <div className="overflow-y-scroll">
+        <Footer />
+      </div>
       <NavButtons />
       <Toaster />
     </>
