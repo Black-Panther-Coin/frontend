@@ -5,7 +5,7 @@ const propUps = ({ onClose }) => {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50">
       <div className="p-6 bg-gray-900 rounded-md shadow-lg max-w-sm text-center">
-        <p className="text-lg font-semibold">
+        <p className="text-lg font-semibold text-yellow-500">
           “Note: $BPNTHR tokens bought during the discounted Private Sale period
           are subject to a 20% fee if sold within the first 60 days of the
           project Go-live.
