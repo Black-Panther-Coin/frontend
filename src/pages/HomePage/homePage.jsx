@@ -119,15 +119,15 @@ const HomePage = () => {
           }`}
           style={{ ...fadeIn }}
         >
-          <h1 className="text-4xl mt-16 md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left">
+          <h1 className=" mt-16 text-4xl md:text-6xl leading-tight font-bold text-white text-center md:text-left">
             Black Panther Token
           </h1>
-          <h1 className="text-4xl text-center md:text-left md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4">
+          <h1 className="text-4xl text-center md:text-left md:text-6xl leading-tight font-bold text-white my-4">
             Private Sale is <br /> Live
           </h1>
 
           <p
-            className={`mt-4 text-base text-center  md:text-left md:text-lg lg:text-2xl text-white`}
+            className={`mt-4 text-base text-center  md:text-left md:text-lg text-white`}
           >
             Participate in the private sale of{" "}
             <span className="font-bold">Black Panther</span>{" "}
@@ -153,11 +153,11 @@ const HomePage = () => {
                 onChange={(e) => setValue(e.target.value)}
                 type="number"
                 placeholder="Enter BNB"
-                className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl w-full md:w-auto"
+                className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg w-full md:w-auto"
               />
               <button
                 onClick={buyToken}
-                className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg lg:text-xl w-full md:w-auto"
+                className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg w-full md:w-auto"
               >
                 {label}
               </button>
@@ -169,8 +169,8 @@ const HomePage = () => {
           style={logoAnimation}
           className="mt-28 flex flex-col items-center"
         >
-          <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
-          <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
+          <PantherLogo className="w-12 h-12 md:w-16 md:h-16" />
+          <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg">
             BLACK PANTHER (BPNTHR)
           </span>
           <div className="flex mt-4 mb-9">
