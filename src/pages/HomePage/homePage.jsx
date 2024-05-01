@@ -175,7 +175,7 @@ const HomePage = () => {
           </span>
           <div className="flex mt-4 mb-9">
             <a
-              href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
+              href="https://t.me/blackpanthertkn"
               target="_blank"
               className="mr-2 md:mr-4 text-white hover:text-gray-300"
             >
