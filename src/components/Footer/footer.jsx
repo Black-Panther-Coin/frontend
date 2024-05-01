@@ -15,9 +15,9 @@ const Footer = () => {
         <div className="justify-between items-center">
           {/* Dogecoin  Section */}
           <div className="flex items-center mb-8">
-            <img src={Item1Image} alt="Dogecoin" className="w-40 h-auto mr-4" />
+            <img src={Item1Image} alt="Dogecoin" className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <h1 onClick={() => window.open("https://shibatoken.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 From Jobless to Millionaire!
               </h1>
             </div>
@@ -25,9 +25,9 @@ const Footer = () => {
 
           {/* Shiba Section */}
           <div className="flex items-center mb-8">
-            <img src={Item2Image} alt="Shiba " className="w-40 h-auto mr-4" />
+            <img src={Item2Image} alt="Shiba " className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <h1 onClick={() => window.open("https://dogecoin.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 Dogecoin Millionaire in 2 Months
               </h1>
             </div>
@@ -35,9 +35,9 @@ const Footer = () => {
 
           {/* Pepe Section */}
           <div className="flex items-center mb-8">
-            <img src={Item3Image} alt="Pepe" className="w-40 h-auto mr-4" />
+            <img src={Item3Image} alt="Pepe" className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <h1 onClick={() => window.open("https://www.pepecointoken.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 $27 Turns Into 1Million
               </h1>
             </div>

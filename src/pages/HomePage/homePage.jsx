@@ -106,42 +106,28 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative pt-24 pb-28">
+      <div className="relative pt-24 pb-28 min-h-screen bg-bg2 bg-no-repeat bg-contain md:bg-cover bg-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
-        <img
+        {/* <img
           src={backgroundImage}
           alt="background"
           className="w-full h-full object-cover"
-        />
+        /> */}
         <animated.div
           className={`absolute inset-0 flex flex-col items-center justify-center  p-8 bg-transparent font-montserrat ${
             isDesktop ? "md:items-start md:justify-start" : ""
           }`}
           style={{ ...fadeIn }}
         >
-          {!isMobile && (
-            <h1
-              className={`text-4xl mt-${isMobile ? 6 : 12} ${
-                isMobile ? "text-center mb-2" : "md:text-6xl lg:text-8xl"
-              } leading-tight font-bold text-white ${
-                isMobile ? "" : "md:text-left"
-              } my-4`}
-            >
-              Black Panther Token
-            </h1>
-          )}
-          <h1
-            className={`text-4xl ${
-              isMobile ? "text-center mt-16" : "md:text-left"
-            } md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4`}
-          >
+          <h1 className="text-4xl mt-1 md:mt-16 md:text-6xl lg:text-8xl leading-tight font-bold text-white text-center md:text-left">
+            Black Panther Token
+          </h1>
+          <h1 className="text-4xl text-center md:text-left md:text-6xl lg:text-8xl leading-tight font-bold text-white my-4">
             Private Sale is <br /> Live
           </h1>
 
           <p
-            className={`mt-4 text-base ${
-              isMobile ? "text-center" : "md:text-left"
-            } md:text-lg lg:text-2xl text-white`}
+            className={`mt-4 text-base text-center  md:text-left md:text-lg lg:text-2xl text-white`}
           >
             Participate in the private sale of{" "}
             <span className="font-bold">Black Panther</span>{" "}
@@ -157,77 +143,74 @@ const HomePage = () => {
             <span className="font-bold">Black Panther Token</span>
             &nbsp;&nbsp;(BPNTHR)
           </p>
+
           <animated.div
-            style={buttonAnimation}
-            className="mt-4 flex flex-col md:flex-row items-start md:items-center w-full"
-          >
-            <input
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              type="number"
-              placeholder="Enter BNB"
-              className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl w-full md:w-auto"
-            />
-            <button
-              onClick={buyToken}
-              className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg lg:text-xl w-full md:w-auto"
+              style={buttonAnimation}
+              className="mt-4 flex flex-col md:flex-row items-start md:items-center w-full"
             >
-              {label}
-            </button>
-          </animated.div>
-          {/* <div className="text-white font-bold mt-4">{`Launching in: ${launchTimer}`}</div> */}
+              <input
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                type="number"
+                placeholder="Enter BNB"
+                className="bg-white text-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-base md:text-lg lg:text-xl w-full md:w-auto"
+              />
+              <button
+                onClick={buyToken}
+                className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-base md:text-lg lg:text-xl w-full md:w-auto"
+              >
+                {label}
+              </button>
+            </animated.div>
         </animated.div>
-        {!isMobile && (
-          <animated.div
-            style={logoAnimation}
-            className="mt-8 flex flex-col items-center"
-          >
-            <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
-            <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
-              BLACK PANTHER (BPNTHR)
-            </span>
-            <div className="flex mt-4">
-              <a href="#" className="mr-4 text-white hover:text-gray-300">
-                YouTube
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCZQnJu5HncWbRJ35Je3y_yQ"
-                className="mr-4 text-white hover:text-gray-300"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
-                className="mr-4 text-white hover:text-gray-300"
-              >
-                PancakeSwap
-              </a>
-              <a
-                href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
-                className="mr-4 text-white hover:text-gray-300"
-              >
-                Telegram
-              </a>
-              <a
-                href="https://discord.com/invite/cQHYs5mUwJ"
-                className="mr-4 text-white hover:text-gray-300"
-              >
-                Discord
-              </a>
-              <a
-                href="https://www.tiktok.com/@blackpanthertkn"
-                className="text-white hover:text-gray-300"
-              >
-                TikTok
-              </a>
-              <a
-                href="https://www.tiktok.com/@blackpanthertkn"
-                className="text-white hover:text-gray-300"
-              ></a>
-            </div>
-          </animated.div>
-        )}
       </div>
+      
+      <animated.div
+          style={logoAnimation}
+          className="mt-8 flex flex-col items-center"
+        >
+          <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
+          <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
+            BLACK PANTHER (BPNTHR)
+          </span>
+          <div className="flex mt-4 mb-9">
+            <a
+              href="https://pancakeswap.finance/swap?outputCurrency=0x70B6954E4a08BBdE4A27A61876EE6cB1F0f43C15"
+              target="_blank"
+              className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            >
+              Telegram
+            </a>
+            <a
+              href="https://twitter.com/BlackPanthertkn"
+              target="_blank"
+              className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            >
+              Twitter
+            </a>
+            <a
+              href="https://discord.com/invite/cQHYs5mUwJ"
+              target="_blank"
+              className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            >
+              Discord
+            </a>
+            <a
+              href="https://www.tiktok.com/@blackpanthertkn"
+              target="_blank"
+              className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            >
+              TikTok
+            </a>
+            <a
+              href="https://www.instagram.com/blackpanthertkn/"
+              target="_blank"
+              className="text-white hover:text-gray-300"
+            >
+              Instagram
+            </a>
+          </div>
+        </animated.div>
       {showPopup && <Popup onClose={handleClosePopup} />}
       <div className="overflow-y-scroll">
         <Footer />
