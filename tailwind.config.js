@@ -6,7 +6,10 @@ export default {
     extend: {
       backgroundImage: {
         'bg2':'url("/src/assets/images/bg2.jpg")'
-      }
+      },
+      colors:{
+        "lightbaige":"#F8F5ED"
+        },
     },
   },
   variants: {
