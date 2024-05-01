@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="flex items-center mb-8">
             <img src={Item1Image} alt="Dogecoin" className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 onClick={() => window.open("https://shibatoken.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
+              <h1 onClick={() => window.open("https://edition.cnn.com/2021/05/14/investing/crypto-shiba-inu-brothers-millionaires/index.html", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 From Jobless to Millionaire!
               </h1>
             </div>
@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="flex items-center mb-8">
             <img src={Item2Image} alt="Shiba " className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 onClick={() => window.open("https://dogecoin.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
+              <h1 onClick={() => window.open("https://news.bitcoin.com/dogecoin-investor-millionaire-inspired-by-elon-musk/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 Dogecoin Millionaire in 2 Months
               </h1>
             </div>
@@ -37,7 +37,7 @@ const Footer = () => {
           <div className="flex items-center mb-8">
             <img src={Item3Image} alt="Pepe" className="w-20 md:w-40 h-auto mr-4" />
             <div>
-              <h1 onClick={() => window.open("https://www.pepecointoken.com/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
+              <h1 onClick={() => window.open("https://www.analyticsinsight.net/a-man-who-turned-27-into-1-million-with-a-pepe-coin-makes-a-massive-investment-into-digitoads/", "_blank")} className="text-xl md:text-5xl font-bold text-white mb-2 cursor-pointer">
                 $27 Turns Into 1Million
               </h1>
             </div>
