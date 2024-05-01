@@ -38,14 +38,27 @@ const NavButtons = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 flex justify-between items-center w-full px-8 py-4 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 w-full px-8 py-4 z-50 transition-all duration-500 ${
         isScrolled ? "bg-black shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-        <div className="flex items-center space-x-3 md:space-x-0 rtl:space-x-reverse order-2 md:order-1">
+      <div className="flex justify-between">
+        <div>
+          <ul>
+              <li>
+                <a
+                  className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center cursor-pointer"
+                  onClick={() => window.open("bpc.clawpaper.v1.1.pdf", "_blank")}
+                  aria-current="page"
+                >
+                  Read ClawPaper
+                </a>
+              </li>
+            </ul>
+        </div>
+        <div className="flex order-2 md:order-1">
           <w3m-button />
-          <button
+          {/* <button
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             onClick={toggleCollapse}
           >
@@ -65,9 +78,9 @@ const NavButtons = () => {
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
-        <div
+        {/* <div
           className={`items-center justify-between w-full md:flex md:w-auto ${
             isMobile ? (isCollapsed ? "hidden" : "flex flex-col") : "flex"
           } ${
@@ -94,7 +107,7 @@ const NavButtons = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
