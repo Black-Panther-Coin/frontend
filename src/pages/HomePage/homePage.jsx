@@ -146,7 +146,7 @@ const HomePage = () => {
 
           <animated.div
               style={buttonAnimation}
-              className="mt-4 flex flex-col md:flex-row items-start md:items-center w-full"
+              className="mt-4 mb-28 flex flex-col md:flex-row items-start md:items-center w-full"
             >
               <input
                 value={value}
@@ -167,7 +167,7 @@ const HomePage = () => {
       
       <animated.div
           style={logoAnimation}
-          className="mt-8 flex flex-col items-center"
+          className="mt-28 flex flex-col items-center"
         >
           <PantherLogo className="w-12 h-12 md:w-16 md:h-16 lg:w-24 lg:h-24" />
           <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg lg:text-xl">
