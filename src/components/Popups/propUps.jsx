@@ -4,8 +4,8 @@ import React from "react";
 const propUps = ({ onClose }) => {
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50">
-      <div className="p-6 rounded-md shadow-lg max-w-sm text-center" style={{backgroundColor: "#F8F5ED"}}>
-        <p className="text-lg font-semibold text-black">
+      <div className="p-6 rounded-md shadow-lg max-w-xs md:max-w-sm text-center" style={{backgroundColor: "#F8F5ED"}}>
+        <p className="text-md md:text-lg font-semibold text-black">
           “Note: $BPNTHR tokens bought during the discounted Private Sale period
           are subject to a 20% fee if sold within the first 60 days of the
           project Go-live.
