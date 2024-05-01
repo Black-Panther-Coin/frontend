@@ -167,7 +167,7 @@ const HomePage = () => {
       
       <animated.div
           style={logoAnimation}
-          className="mt-28 flex flex-col items-center"
+          className="mt-8 flex flex-col items-center"
         >
           <PantherLogo className="w-12 h-12 md:w-16 md:h-16" />
           <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg">
