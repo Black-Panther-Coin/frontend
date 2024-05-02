@@ -147,13 +147,13 @@ const HomePage = () => {
           <p
             className={`mt-4 text-sm text-center  md:text-left md:text-md text-white`}
           >
-            Please Go to your Wallet Address and <span className="font-bold">CUSTOM IMPORT</span> the <br />{" "}
-             <span className="font-bold">BPNTHR</span> ticker by <span className="font-bold">Copy pasting</span> Contract Address inside <br />{" "}
+            Please Go to your Wallet Address and <span className="font-bold text-yellow-500">CUSTOM IMPORT</span> the <br />{" "}
+             <span className="font-bold text-yellow-500">BPNTHR</span> ticker by <span className="font-bold text-yellow-500">Copy pasting</span> Contract Address inside <br />{" "}
              your wallet in order to view the number of tokens you have bought. <br />{" "}
           </p>
 
           <p className={`mt-4 text-sm text-center  md:text-left md:text-md text-white`}>
-            <span className="font-bold">Contract Address :</span> <br />{" "}
+            <span className="font-bold text-yellow-500">Contract Address :</span> <br />{" "}
              <span>0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5</span>
           </p>
 
@@ -170,7 +170,7 @@ const HomePage = () => {
               />
               <button
                 onClick={buyToken}
-                className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded md:my-0 text-sm md:text-md w-full md:w-auto"
+                className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded-full md:my-0 text-sm md:text-md w-full md:w-auto"
               >
                 {label}
               </button>
