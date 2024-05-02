@@ -166,7 +166,7 @@ const HomePage = () => {
                 onChange={(e) => setValue(e.target.value)}
                 type="number"
                 placeholder="Enter BNB"
-                className="text-white font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-auto"
+                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-auto"
               />
               <button
                 onClick={buyToken}
