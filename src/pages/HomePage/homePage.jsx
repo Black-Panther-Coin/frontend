@@ -15,6 +15,7 @@ import "./homePage.css";
 
 const HomePage = () => {
   const [value, setValue] = useState("");
+  const [usdValue, setUsdValue] = useState("")
   const [showPopup, setShowPopup] = useState(true);
   const [launchDate, setLaunchDate] = useState(new Date("2024-05-01T00:00:00"));
 
@@ -55,6 +56,7 @@ const HomePage = () => {
     onSuccess: () => {
       toast.success("PNTHR bought successfully, check your wallet address.");
       setValue("");
+      window.reload()
     },
     onError: () => toast.error("An Error Occurred"),
   });
@@ -119,7 +121,7 @@ const HomePage = () => {
           }`}
           style={{ ...fadeIn }}
         >
-          <h1 className="mt-28 md:mt-16 text-xl md:text-4xl leading-tight font-bold text-white text-center md:text-left">
+          <h1 className="mt-48 md:mt-16 text-xl md:text-4xl leading-tight font-bold text-white text-center md:text-left">
             Black Panther Token
           </h1>
           <h1 className="text-xl text-center md:text-left md:text-4xl leading-tight font-bold text-white my-4">
@@ -161,13 +163,21 @@ const HomePage = () => {
               style={buttonAnimation}
               className="mt-4 mb-28 flex flex-col md:flex-row items-start md:items-center w-full"
             >
-              <input
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                type="number"
-                placeholder="Enter BNB"
-                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-auto"
-              />
+              <div className="flex md:w-1/4">
+                <input
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  type="number"
+                  placeholder="Enter BNB"
+                  className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-1 text-sm md:text-md w-full md:w-2/3"
+                />
+                <input
+                  value={usdValue}
+                  placeholder="USD"
+                  className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-1/3"
+                  disabled
+                />
+              </div>
               <button
                 onClick={buyToken}
                 className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded-full md:my-0 text-sm md:text-md w-full md:w-auto"
