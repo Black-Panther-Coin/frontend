@@ -12,6 +12,7 @@ import { useWaitForTransaction } from "wagmi";
 import Footer from "../../components/Footer/footer";
 import Popup from "../../components/Popups/propUps";
 import "./homePage.css";
+import { ConvertFromBNBToUSD } from "../../components/utils/convertFromBNBToUSD";
 
 const HomePage = () => {
   const [value, setValue] = useState("");
@@ -106,6 +107,13 @@ const HomePage = () => {
     setShowPopup(false);
   };
 
+  const onSetValue = async (val) => {
+    setValue(val)
+    const usdVal = await ConvertFromBNBToUSD(val)
+    console.log("usdVal", usdVal)
+    setUsdValue(usdVal)
+  }
+
   return (
     <>
       <div className="relative pt-24 pb-28 min-h-screen bg-bg2 bg-no-repeat bg-contain md:bg-cover bg-center">
@@ -122,7 +130,7 @@ const HomePage = () => {
           style={{ ...fadeIn }}
         >
           <h1 className="mt-48 md:mt-16 text-xl md:text-4xl leading-tight font-bold text-white text-center md:text-left">
-            Black Panther Token
+            Black Panther Token  <span>(BPNTHR)</span>
           </h1>
           <h1 className="text-xl text-center md:text-left md:text-4xl leading-tight font-bold text-white my-4">
             Private Sale is <br /> Live
@@ -131,9 +139,6 @@ const HomePage = () => {
           <p
             className={`mt-4 text-sm text-center  md:text-left md:text-md text-white`}
           >
-            Participate in the private sale of{" "}
-            <span className="font-bold">Black Panther</span>{" "}
-            <span className=" font-bold">(BPNTHR)</span>. <br />{" "}
             <span className="font-bold">
               {" "}
               <span className="text-yellow-500">
@@ -176,17 +181,17 @@ const HomePage = () => {
             <div className="flex md:w-1/4">
               <input
                 value={value}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => onSetValue(e.target.value)}
                 type="number"
                 placeholder="Enter BNB"
                 className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-1 text-sm md:text-md w-full md:w-2/3"
-              />
+              /><span>BNB</span>
               <input
                 value={usdValue}
                 placeholder="USD"
                 className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-1/3"
                 disabled
-              />
+              /><span>USD</span>
             </div>
             <button
               onClick={buyToken}
