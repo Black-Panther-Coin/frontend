@@ -57,7 +57,7 @@ const HomePage = () => {
     onSuccess: () => {
       toast.success("BPNTHR bought successfully, check your wallet address.");
       setValue("");
-      window.reload();
+      window.location.reload(); // Corrected from window.reload() to window.location.reload()
     },
     onError: () => toast.error("An Error Occurred"),
   });
@@ -129,7 +129,7 @@ const HomePage = () => {
           }`}
           style={{ ...fadeIn }}
         >
-          <h1 className="mt-48 md:mt-16 text-xl md:text-4xl leading-tight font-bold text-white text-center md:text-left">
+          <h1 className="mt-4 text-xl md:mt-16 md:text-4xl leading-tight font-bold text-white text-center md:text-left">
             Black Panther Token  <span>(BPNTHR)</span>
           </h1>
           <h1 className="text-xl text-center md:text-left md:text-4xl leading-tight font-bold text-white my-4">
@@ -184,15 +184,18 @@ const HomePage = () => {
                 onChange={(e) => onSetValue(e.target.value)}
                 type="number"
                 placeholder="Enter BNB"
-                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-1 text-sm md:text-md w-full md:w-2/3"
-              /><span>BNB</span>
+                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-1 text-sm md:text-md w-full"
+              />
+              <span className="text-white mt-4 py-2 px-4">BNB</span>
               <input
                 value={usdValue}
                 placeholder="USD"
-                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full md:w-1/3"
+                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full"
                 disabled
-              /><span>USD</span>
+              />
+              <span className="text-white mt-4 py-2 px-4">USD</span>
             </div>
+
             <button
               onClick={buyToken}
               className="bg-yellow-500 hover:bg-gray-200 text-black font-bold py-3 px-6 md:px-8 rounded-full md:my-0 text-sm md:text-md w-full md:w-auto"
