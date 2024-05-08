@@ -57,7 +57,7 @@ const HomePage = () => {
     onSuccess: () => {
       toast.success("BPNTHR bought successfully, check your wallet address.");
       setValue("");
-      window.location.reload(); // Corrected from window.reload() to window.location.reload()
+      window.reload(); 
     },
     onError: () => toast.error("An Error Occurred"),
   });
