@@ -176,24 +176,17 @@ const HomePage = () => {
 
           <animated.div
             style={buttonAnimation}
-            className="mt-4 mb-28 flex flex-col md:flex-row items-start md:items-center w-full"
+            className="mt-4 mb-2 flex flex-col md:flex-row items-start md:items-center w-full"
           >
             <div className="flex md:w-1/4">
+              <span className="text-white mt-4 py-2 px-4">BNB</span>
               <input
                 value={value}
                 onChange={(e) => onSetValue(e.target.value)}
                 type="number"
                 placeholder="Enter BNB"
-                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-1 text-sm md:text-md w-full"
+                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 mr-3 text-sm md:text-md w-full"
               />
-              <span className="text-white mt-4 py-2 px-4">BNB</span>
-              <input
-                value={usdValue}
-                placeholder="USD"
-                className="text-white bg-black font-bold py-3 px-6 md:px-8 rounded border border-black my-2 md:my-0 md:mr-4 text-sm md:text-md w-full"
-                disabled
-              />
-              <span className="text-white mt-4 py-2 px-4">USD</span>
             </div>
 
             <button
@@ -202,6 +195,12 @@ const HomePage = () => {
             >
               {label}
             </button>
+          </animated.div>
+          {value !== "" && (<>
+              <div>
+                <span className="text-white mt-4 py-2 px-4">Equivilent in USD: <span className="font-bold text-yellow-500">${usdValue}</span></span>
+              </div>
+            </>)}
             <div className="text-center mt-3">
               <ul>
                 <li>
@@ -222,7 +221,6 @@ const HomePage = () => {
                 </li>
               </ul>
             </div>
-          </animated.div>
         </animated.div>
       </div>
 
