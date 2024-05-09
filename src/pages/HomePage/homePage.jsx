@@ -172,7 +172,7 @@ const HomePage = () => {
             <br /> <span>0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5</span>
           </p>
 
-          <p className="font-bold">NB: MUST BE ON BSCAN</p>
+          <p className="font-bold">NB: MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK(NOT ETHERIUM MAI)</p>
 
           <animated.div
             style={buttonAnimation}
@@ -198,7 +198,7 @@ const HomePage = () => {
           </animated.div>
           {value !== "" && (<>
               <div>
-                <span className="text-white mt-4 py-2 px-4">Equivilent in USD: <span className="font-bold text-yellow-500">${usdValue}</span></span>
+                <span className="text-white mt-4 py-2 px-4">Equivalent in USD: <span className="font-bold text-yellow-500">${usdValue}</span></span>
               </div>
             </>)}
             <div className="text-center mt-3">
