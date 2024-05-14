@@ -1,21 +1,34 @@
 import React, { useState } from "react";
-import WalletApprovalPopup from "../Popups/walletApprovalPopup"; 
+import WalletApprovalPopup from "../Popups/walletApprovalPopup";
 import bgImage from "../../assets/images/bg7.png";
-import DonationPopup from "../Popups/donationPopup"; 
+import DonationPopup from "../Popups/donationPopup";
 
 const Footer = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
-  const [isDonationPopupOpen, setIsDonationPopupOpen] = useState(false); 
+  const [isDonationPopupOpen, setIsDonationPopupOpen] = useState(false);
+
   const handleCheckWallet = () => {
-   
     setIsApproved(!!walletAddress);
     setIsPopupOpen(true);
   };
 
   const handleDonate = () => {
-    setIsDonationPopupOpen(true); 
+    setIsDonationPopupOpen(true);
+  };
+
+  const handlePopupClose = (type) => {
+    switch (type) {
+      case "wallet":
+        setIsPopupOpen(false);
+        break;
+      case "donation":
+        setIsDonationPopupOpen(false);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -26,12 +39,11 @@ const Footer = () => {
       />
       <div className="container mx-auto relative z-10 flex flex-col items-center justify-center">
         <div className="w-3/4 md:w-1/2 lg:w-1/3">
-          
-          <p className="text-white text-center mb-4">
+          {/* <p className="text-white text-center mb-4">
             Check your wallet approval status
-          </p>
+          </p> */}
           {/* Input Box Section */}
-          <div className="flex items-center mb-8">
+          {/* <div className="flex items-center mb-8">
             <input
               type="text"
               placeholder="Enter Wallet Address"
@@ -46,14 +58,19 @@ const Footer = () => {
             >
               Check
             </button>
-          </div>
+          </div> */}
           {/* Donate Button */}
-          <button
-            onClick={handleDonate}
-            className="bg-blue-500 text-white font-bold px-6 py-4 rounded-lg"
-          >
-            Donate
-          </button>
+          <div className="text-center">
+            <p className="text-white font-bold mb-4">
+              Click here to contribute and empower our impactful mission.
+            </p>
+            <button
+              onClick={handleDonate}
+              className="bg-yellow-400 text-black font-bold px-6 py-4 rounded-lg"
+            >
+              Donate
+            </button>
+          </div>
         </div>
         {/* Footer Bottom Section */}
         <div className="text-center mt-8 items-center">
@@ -65,13 +82,13 @@ const Footer = () => {
         {/* Render Wallet Approval Popup */}
         <WalletApprovalPopup
           isOpen={isPopupOpen}
-          onClose={() => setIsPopupOpen(false)}
+          onClose={() => handlePopupClose("wallet")}
           isApproved={isApproved}
         />
         {/* Render Donation Popup */}
         <DonationPopup
           isOpen={isDonationPopupOpen}
-          onClose={() => setIsDonationPopupOpen(false)}
+          onClose={() => handlePopupClose("donation")}
         />
       </div>
     </footer>

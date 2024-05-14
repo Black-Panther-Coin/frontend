@@ -13,6 +13,14 @@ import Footer from "../../components/Footer/footer";
 import Popup from "../../components/Popups/propUps";
 import "./homePage.css";
 import { ConvertFromBNBToUSD } from "../../components/utils/convertFromBNBToUSD";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTelegram,
+  faTwitter,
+  faDiscord,
+  faTiktok,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const HomePage = () => {
   const [value, setValue] = useState("");
@@ -57,7 +65,7 @@ const HomePage = () => {
     onSuccess: () => {
       toast.success("BPNTHR bought successfully, check your wallet address.");
       setValue("");
-      window.reload(); 
+      window.reload();
     },
     onError: () => toast.error("An Error Occurred"),
   });
@@ -108,11 +116,11 @@ const HomePage = () => {
   };
 
   const onSetValue = async (val) => {
-    setValue(val)
-    const usdVal = await ConvertFromBNBToUSD(val)
-    console.log("usdVal", usdVal)
-    setUsdValue(usdVal)
-  }
+    setValue(val);
+    const usdVal = await ConvertFromBNBToUSD(val);
+    console.log("usdVal", usdVal);
+    setUsdValue(usdVal);
+  };
 
   return (
     <>
@@ -130,7 +138,7 @@ const HomePage = () => {
           style={{ ...fadeIn }}
         >
           <h1 className="mt-4 text-xl md:mt-16 md:text-4xl leading-tight font-bold text-white text-center md:text-left">
-            Black Panther Token  <span>(BPNTHR)</span>
+            Black Panther Token <span>(BPNTHR)</span>
           </h1>
           <h1 className="text-xl text-center md:text-left md:text-4xl leading-tight font-bold text-white my-4">
             Private Sale is <br /> Live
@@ -172,7 +180,10 @@ const HomePage = () => {
             <br /> <span>0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5</span>
           </p>
 
-          <p className="font-bold">NB: MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK(NOT ETHERIUM MAI)</p>
+          <p className="font-bold">
+            NB: MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK(NOT
+            ETHERIUM MAI)
+          </p>
 
           <animated.div
             style={buttonAnimation}
@@ -196,31 +207,36 @@ const HomePage = () => {
               {label}
             </button>
           </animated.div>
-          {value !== "" && (<>
+          {value !== "" && (
+            <>
               <div>
-                <span className="text-white mt-4 py-2 px-4">Equivalent in USD: <span className="font-bold text-yellow-500">${usdValue}</span></span>
+                <span className="text-white mt-4 py-2 px-4">
+                  Equivalent in USD:{" "}
+                  <span className="font-bold text-yellow-500">${usdValue}</span>
+                </span>
               </div>
-            </>)}
-            <div className="text-center mt-3">
-              <ul>
-                <li>
-                  {isMobile && (
-                    <a
-                      className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 text-center cursor-pointer"
-                      onClick={() =>
-                        window.open(
-                          "https://bscscan.com/address/0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5",
-                          "_blank"
-                        )
-                      }
-                      aria-current="page"
-                    >
-                      Click to View Contract
-                    </a>
-                  )}
-                </li>
-              </ul>
-            </div>
+            </>
+          )}
+          <div className="text-center mt-3">
+            <ul>
+              <li>
+                {isMobile && (
+                  <a
+                    className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 text-center cursor-pointer"
+                    onClick={() =>
+                      window.open(
+                        "https://bscscan.com/address/0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5",
+                        "_blank"
+                      )
+                    }
+                    aria-current="page"
+                  >
+                    Click to View Contract
+                  </a>
+                )}
+              </li>
+            </ul>
+          </div>
         </animated.div>
       </div>
 
@@ -232,41 +248,42 @@ const HomePage = () => {
         <span className="text-yellow-500 font-bold mt-2 text-base md:text-lg">
           BLACK PANTHER (BPNTHR)
         </span>
-        <div className="flex mt-4 mb-9">
+        {/* social Media */}
+        <div className="flex mt-4 mb-9 space-x-4">
           <a
             href="https://t.me/blackpanthertkn"
             target="_blank"
-            className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            className="text-yellow-500 hover:text-gray-300"
           >
-            Telegram
+            <FontAwesomeIcon icon={faTelegram} size="2x" />
           </a>
           <a
             href="https://twitter.com/BlackPanthertkn"
             target="_blank"
-            className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            className="text-yellow-500 hover:text-gray-300"
           >
-            Twitter
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
           </a>
           <a
             href="https://discord.com/invite/cQHYs5mUwJ"
             target="_blank"
-            className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            className="text-yellow-500 hover:text-gray-300"
           >
-            Discord
+            <FontAwesomeIcon icon={faDiscord} size="2x" />
           </a>
           <a
             href="https://www.tiktok.com/@blackpanthertkn"
             target="_blank"
-            className="mr-2 md:mr-4 text-white hover:text-gray-300"
+            className="text-yellow-500 hover:text-gray-300"
           >
-            TikTok
+            <FontAwesomeIcon icon={faTiktok} size="2x" />
           </a>
           <a
             href="https://www.instagram.com/blackpanthertkn/"
             target="_blank"
-            className="text-white hover:text-gray-300"
+            className="text-yellow-500 hover:text-gray-300"
           >
-            Instagram
+            <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
         </div>
       </animated.div>

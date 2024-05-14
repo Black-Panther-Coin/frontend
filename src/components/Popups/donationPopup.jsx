@@ -1,40 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
+import toast from "react-hot-toast";
+import pantherImage from "../../assets/qr-code.png";
 
 const DonationPopup = ({ isOpen, onClose }) => {
-  const [donationAmount, setDonationAmount] = useState("");
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText("0x194d225F7470dE3b57017726B629b4fFb160b86A");
+    toast.success("Wallet address copied to clipboard!");
+  };
 
   const handleDonate = () => {
-   
-    console.log("Donation amount:", donationAmount);
-    onClose(); 
+    toast.success("Donation successful!");
+    onClose();
   };
 
   return (
     isOpen && (
       <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-lg font-semibold mb-4">Donate with Love</h2>
-          <div className="mb-4">
-            <input
-              type="text"
-              placeholder="Enter the Amount"
-              className="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg focus:outline-none w-full"
-              value={donationAmount}
-              onChange={(e) => setDonationAmount(e.target.value)}
-            />
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+          <h2 className="text-lg font-semibold mb-4 text-black text-center">
+            Scan or copy wallet address to make your donation
+          </h2>
+          <div className="text-center mb-4">
+            <div className="bg-gold rounded-lg inline-block">
+              <p className="text-yellow-600 font-bold ">
+                0x194d225F7470dE3b57017726B629b4fFb160b86A
+              </p>
+            </div>
           </div>
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
-            onClick={handleDonate}
-          >
-            Donate
-          </button>
-          <button
-            className="bg-gray-500 text-white px-4 py-2 rounded-lg"
-            onClick={onClose}
-          >
-            Cancel
-          </button>
+
+          <img
+            src={pantherImage}
+            alt="Donation QR Code"
+            className="mt-4 w-full h-auto mx-auto"
+          />
+          <div className="text-center mt-4">
+            <button
+              onClick={handleCopyAddress}
+              className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-bold mr-2"
+            >
+              Copy wallet address
+            </button>
+            <button
+              className="bg-gray-500 text-white px-4 py-2 rounded-lg"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+          </div>
+          <p className="text-gray-500 text-xs mt-4 text-center">
+            Your contribution supports our cause. Thank you!
+          </p>
         </div>
       </div>
     )
