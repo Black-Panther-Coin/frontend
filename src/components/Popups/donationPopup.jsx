@@ -21,8 +21,8 @@ const DonationPopup = ({ isOpen, onClose }) => {
             Scan or copy wallet address to make your donation
           </h2>
           <div className="text-center mb-4">
-            <div className="bg-gold rounded-lg inline-block">
-              <p className="text-yellow-600 font-bold ">
+            <div className="bg-gold rounded-lg inline-block p-2 md:p-4 flex justify-center">
+              <p className="text-yellow-600 font-bold text-sm md:text-base">
                 0x194d225F7470dE3b57017726B629b4fFb160b86A
               </p>
             </div>
