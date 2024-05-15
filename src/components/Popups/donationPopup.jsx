@@ -1,4 +1,3 @@
-// DonationPopup.js
 import React from "react";
 import toast from "react-hot-toast";
 import pantherImage from "../../assets/qr-code.png";
@@ -18,17 +17,10 @@ const DonationPopup = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
-      <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg max-w-xs w-full md:max-w-sm">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-sm max-w-xs w-full md:max-w-sm">
         <h2 className="text-md md:text-lg font-semibold mb-4 text-black text-center">
           Scan or copy wallet address to make your donation
         </h2>
-        <div className="text-center mb-4">
-          <div className="bg-gold rounded-lg inline-block p-2 md:p-4 flex justify-center">
-            <p className="text-yellow-600 font-bold text-xs md:text-sm">
-              0x194d225F7470dE3b57017726B629b4fFb160b86A
-            </p>
-          </div>
-        </div>
 
         <img
           src={pantherImage}
@@ -38,6 +30,13 @@ const DonationPopup = ({ isOpen, onClose }) => {
         <h4 className="text-black font-bold w-24 text-center h-auto mx-auto">
           BNB
         </h4>
+        <div className="text-center mb-4">
+          <div className="bg-gold rounded-lg inline-block p-2 md:p-4 flex justify-center">
+            <p className="text-yellow-600 font-bold text-xs md:text-sm">
+              0x194d225F7470dE3b57017726B629b4fFb160b86A
+            </p>
+          </div>
+        </div>
         <div className="text-center mt-4">
           <button
             onClick={handleCopyAddress}
