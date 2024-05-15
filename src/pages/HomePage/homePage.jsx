@@ -182,7 +182,7 @@ const HomePage = () => {
 
           <p className="font-bold">
             NB: MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK(NOT
-            ETHERIUM MAI)
+            ETHERIUM )
           </p>
 
           <animated.div
