@@ -141,7 +141,7 @@ const HomePage = () => {
             Black Panther Token <span>(BPNTHR)</span>
           </h1>
           <h1 className="text-xl text-center md:text-left md:text-4xl leading-tight font-bold text-white my-4">
-            Private Sale is <br /> Live
+            Pre-Sale is <br /> Live
           </h1>
 
           <p
