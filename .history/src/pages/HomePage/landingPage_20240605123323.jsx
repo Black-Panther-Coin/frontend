@@ -13,8 +13,6 @@ import buyImage from '../../assets/images/buy.png';
 import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
-import "./homePage.css";
-import { FaCopy } from 'react-icons/fa';
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -82,6 +80,9 @@ const Header = () => (
 );
 
 
+
+
+
 const BuySection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
 
@@ -102,9 +103,6 @@ const BuySection = () => {
           <p className="text-2xl text-white text-left font-bold">Contract Address:</p>
           <p className="text-yellow-500 font-semibold" onClick={copyToClipboard}>
             {contractAddress}
-            <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
-            <FaCopy />
-            </button>
             {copySuccess && <span className="text-xs text-green-500">Copied!</span>}
           </p>
         </div>
@@ -187,7 +185,7 @@ const RoadMap = () => {
           
           <div className="flex justify-between">
             {/* Phase One */}
-            <div className="flex flex-col items-center animate-move">
+            <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <h2 className="text-xl font-semibold text-white">PHASE ONE</h2>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
@@ -197,7 +195,7 @@ const RoadMap = () => {
               </div>
             </div>
             {/* Phase Two */}
-            <div className="flex flex-col items-center animate-move">
+            <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <h2 className="text-xl font-semibold text-white">PHASE TWO</h2>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
@@ -207,7 +205,7 @@ const RoadMap = () => {
               </div>
             </div>
             {/* Phase Three */}
-            <div className="flex flex-col items-center animate-move">
+            <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <h2 className="text-xl font-semibold text-white">PHASE THREE</h2>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
@@ -217,7 +215,7 @@ const RoadMap = () => {
               </div>
             </div>
             {/* Phase Four */}
-            <div className="flex flex-col items-center animate-move">
+            <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <h2 className="text-xl font-semibold text-white">PHASE FOUR</h2>
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
@@ -232,7 +230,6 @@ const RoadMap = () => {
     </div>
   );
 };
-
 
 
 

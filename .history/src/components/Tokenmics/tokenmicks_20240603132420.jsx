@@ -1,9 +1,3 @@
-import React from 'react';
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-
-ChartJS.register(ArcElement, Tooltip, Legend);
-
 function Tokenomics() {
   const data = {
     labels: ['DEXs', 'Dev', 'Charity', 'Marketing', 'Treasury', 'CEXs'],
@@ -34,21 +28,15 @@ function Tokenomics() {
   const options = {
     plugins: {
       tooltip: {
-        enabled: true,
-      },
-      legend: {
-        display: true,
-        position: 'bottom',
-      },
-      datalabels: {
-        display: true,
-        color: 'white',
-        formatter: (value, context) => {
-          return value + '%';
+        callbacks: {
+          label: function (context) {
+            const label = context.label || '';
+            const value = context.raw || 0;
+            return `${label}: ${value}%`;
+          },
         },
       },
     },
-    maintainAspectRatio: false,
   };
 
   return (
@@ -57,12 +45,10 @@ function Tokenomics() {
         <div className="text-center lg:text-left mb-4 lg:mb-0 lg:w-1/2">
           <h2 className="text-3xl font-bold text-purple-950 mb-2">BPNTHR TOKENOMICS</h2>
         </div>
-        <div className="lg:w-1/2 w-full max-w-xs mx-auto lg:max-w-none" style={{ height: '300px' }}>
+        <div className="lg:w-1/2 w-full max-w-xs mx-auto lg:max-w-none">
           <Pie data={data} options={options} />
         </div>
       </div>
     </div>
   );
 }
-
-export default Tokenomics;

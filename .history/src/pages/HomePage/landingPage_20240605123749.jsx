@@ -14,7 +14,6 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { FaCopy } from 'react-icons/fa';
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -82,14 +81,31 @@ const Header = () => (
 );
 
 
+
+
+
 const BuySection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
+  const contractAddress = "0xYourContractAddressHere";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(contractAddress);
     setCopySuccess(true);
     setTimeout(() => setCopySuccess(false), 2000);
   };
+
+  return (
+    <div className="text-center mt-8">
+      <div className="flex items-center justify-center">
+        <p className="text-white mr-2">{contractAddress}</p>
+        <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
+          <FaCopy />
+        </button>
+      </div>
+      {copySuccess && <p className="text-green-500 mt-2">Copied!</p>}
+    </div>
+  );
+};
 
   return (
     <div className="mx-auto w-full px-4 bg-purple-950">
@@ -102,9 +118,6 @@ const BuySection = () => {
           <p className="text-2xl text-white text-left font-bold">Contract Address:</p>
           <p className="text-yellow-500 font-semibold" onClick={copyToClipboard}>
             {contractAddress}
-            <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
-            <FaCopy />
-            </button>
             {copySuccess && <span className="text-xs text-green-500">Copied!</span>}
           </p>
         </div>

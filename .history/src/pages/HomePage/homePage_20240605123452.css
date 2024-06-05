@@ -13,7 +13,7 @@
     }
   } */
 
-  /* @keyframes move {
+  @keyframes move {
     0% {
       transform: translateY(0);
     }
@@ -27,7 +27,7 @@
   
   .animate-move {
     animation: move 2s ease-in-out infinite;
-  } */
+  }
   
 
   

@@ -99,7 +99,7 @@ const BuySection = () => {
         </div>
         <div className="ml-4">
           <h2 className="text-yellow-500 font-bold text-3xl lg:text-4xl">BPNTHR</h2>
-          <p className="text-2xl text-white text-left font-bold">Contract Address:</p>
+          <p className="text-2xl text-white text-left font-bold">BPNTHR Contract Address:</p>
           <p className="text-yellow-500 font-semibold" onClick={copyToClipboard}>
             {contractAddress}
             <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">

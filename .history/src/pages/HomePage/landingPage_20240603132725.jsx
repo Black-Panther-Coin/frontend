@@ -13,8 +13,6 @@ import buyImage from '../../assets/images/buy.png';
 import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
-import "./homePage.css";
-import { FaCopy } from 'react-icons/fa';
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -39,17 +37,12 @@ const SocialIcons = () => (
 );
 
 const Header = () => (
-  <div className="relative min-h-[70vh] overflow-hidden bg-lightbaige">
-    <div className="flex flex-col justify-center items-center h-full text-center mt-8">
-      <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
-          Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
-        </h1>
-        <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">A MEME COIN WITH PURPOSE!</p>
-      </div>
-      <div className="w-full lg:w-full flex justify-center">
-        <img src="/src/assets/images/landingpanther.png" alt="Black Panther Token" className="w-full max-w-[90%] h-auto"/>
-      </div>
+  <div className="relative min-h-screen overflow-hidden bg-lightbaige">
+    <div className="flex flex-col justify-center items-center h-full text-center ml-1/3 mt-16">
+      <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
+        Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
+      </h1>
+      <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">A MEME COIN WITH PURPOSE!</p>
     </div>
 
     <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
@@ -63,8 +56,8 @@ const Header = () => (
         <div className="mt-4 flex flex-col items-center">
           <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
           <div className="flex mt-2">
-            <input type="text" className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-lightbaige" placeholder="USD" />
-            <input type="text" className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-lightbaige" placeholder="$ BPNTHR" />
+            <input type="text" className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-20 bg-lightbaige" placeholder="USD" />
+            <input type="text" className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-20 bg-lightbaige" placeholder="$ BPNTHR" />
           </div>
           <button className="bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
             Proceed to Buy
@@ -80,7 +73,6 @@ const Header = () => (
     </div>
   </div>
 );
-
 
 const BuySection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -102,9 +94,6 @@ const BuySection = () => {
           <p className="text-2xl text-white text-left font-bold">Contract Address:</p>
           <p className="text-yellow-500 font-semibold" onClick={copyToClipboard}>
             {contractAddress}
-            <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
-            <FaCopy />
-            </button>
             {copySuccess && <span className="text-xs text-green-500">Copied!</span>}
           </p>
         </div>
@@ -173,70 +162,6 @@ const PantherSection = () => (
   </div>
 );
 
-const RoadMap = () => {
-  return (
-    <div className="bg-purple-900 min-h-[50vh] flex items-center justify-center">
-      <div className="container mx-auto py-8">
-        <h1 className="text-center text-4xl font-bold text-white mb-4">ROAD MAP</h1>
-        <div className="relative mb-12 flex justify-center">
-          <div className="w-0.5 h-8 bg-yellow-500"></div>
-        </div>
-        <div className="relative">
-          {/* Horizontal Line */}
-          <div className="absolute left-0 right-0 top-8 border-t border-white" />
-          
-          <div className="flex justify-between">
-            {/* Phase One */}
-            <div className="flex flex-col items-center animate-move">
-              <div className="relative mb-4">
-                <h2 className="text-xl font-semibold text-white">PHASE ONE</h2>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
-              </div>
-              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
-                {/* Content for Phase One */}
-              </div>
-            </div>
-            {/* Phase Two */}
-            <div className="flex flex-col items-center animate-move">
-              <div className="relative mb-4">
-                <h2 className="text-xl font-semibold text-white">PHASE TWO</h2>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
-              </div>
-              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
-                {/* Content for Phase Two */}
-              </div>
-            </div>
-            {/* Phase Three */}
-            <div className="flex flex-col items-center animate-move">
-              <div className="relative mb-4">
-                <h2 className="text-xl font-semibold text-white">PHASE THREE</h2>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
-              </div>
-              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
-                {/* Content for Phase Three */}
-              </div>
-            </div>
-            {/* Phase Four */}
-            <div className="flex flex-col items-center animate-move">
-              <div className="relative mb-4">
-                <h2 className="text-xl font-semibold text-white">PHASE FOUR</h2>
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
-              </div>
-              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
-                {/* Content for Phase Four */}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
-
-
-
 const Footer = () => (
   <div className="bg-gray-900 py-4 mt-16">
     <div className="container mx-auto text-center">
@@ -247,8 +172,6 @@ const Footer = () => (
   </div>
 );
 
-
-
 function LandingPage() {
   return (
     <>
@@ -257,7 +180,6 @@ function LandingPage() {
       <WhySection />
       <PantherSection />
       <Tokenomics />
-      <RoadMap/>
       <Footer />
     </>
   );

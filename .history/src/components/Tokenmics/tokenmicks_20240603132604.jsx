@@ -31,26 +31,6 @@ function Tokenomics() {
     ],
   };
 
-  const options = {
-    plugins: {
-      tooltip: {
-        enabled: true,
-      },
-      legend: {
-        display: true,
-        position: 'bottom',
-      },
-      datalabels: {
-        display: true,
-        color: 'white',
-        formatter: (value, context) => {
-          return value + '%';
-        },
-      },
-    },
-    maintainAspectRatio: false,
-  };
-
   return (
     <div className="bg-yellow-500 py-8">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
@@ -58,7 +38,7 @@ function Tokenomics() {
           <h2 className="text-3xl font-bold text-purple-950 mb-2">BPNTHR TOKENOMICS</h2>
         </div>
         <div className="lg:w-1/2 w-full max-w-xs mx-auto lg:max-w-none" style={{ height: '300px' }}>
-          <Pie data={data} options={options} />
+          <Pie data={data} />
         </div>
       </div>
     </div>

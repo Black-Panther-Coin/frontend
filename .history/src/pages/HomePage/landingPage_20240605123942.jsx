@@ -82,8 +82,12 @@ const Header = () => (
 );
 
 
+
+
+
 const BuySection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
+  const contractAddress = "0xYourContractAddressHere";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(contractAddress);
@@ -92,23 +96,14 @@ const BuySection = () => {
   };
 
   return (
-    <div className="mx-auto w-full px-4 bg-purple-950">
-      <div className="flex flex-col lg:flex-row justify-between items-center">
-        <div className="w-full lg:w-auto mb-4 lg:mb-0 lg:mr-4">
-          <img src={buyImage} alt="Black Panther" className="w-32 h-auto" />
-        </div>
-        <div className="ml-4">
-          <h2 className="text-yellow-500 font-bold text-3xl lg:text-4xl">BPNTHR</h2>
-          <p className="text-2xl text-white text-left font-bold">Contract Address:</p>
-          <p className="text-yellow-500 font-semibold" onClick={copyToClipboard}>
-            {contractAddress}
-            <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
-            <FaCopy />
-            </button>
-            {copySuccess && <span className="text-xs text-green-500">Copied!</span>}
-          </p>
-        </div>
+    <div className="text-center mt-8">
+      <div className="flex items-center justify-center">
+        <p className="text-white mr-2">{contractAddress}</p>
+        <button onClick={copyToClipboard} className="text-white bg-yellow-500 p-2 rounded-full">
+          <FaCopy />
+        </button>
       </div>
+      {copySuccess && <p className="text-green-500 mt-2">Copied!</p>}
     </div>
   );
 };
