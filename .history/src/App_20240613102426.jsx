@@ -118,7 +118,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/landing" element={<LandingPage />} />
-            <Route path="/buytoken" element={<BuyToken />} />
+            <Route path="/buy-token" element={<BuyToken />} />
           </Routes>
         </div>
       </Router>

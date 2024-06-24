@@ -237,7 +237,7 @@ const RoadMap = () => (
         </ul>
       </div>
 
-     
+      {/* Arrow linking phases */}
       
       
     </div>

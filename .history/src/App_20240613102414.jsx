@@ -76,7 +76,7 @@ import { publicProvider } from "wagmi/providers/public";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import BuyToken from './components/BuyTokens/BuyToken';
+import BuyToken from './components/BuyTokens/';
 
 const projectId = "45ff7348e614a721653a8d6d577b43da";
 const metadata = {
@@ -118,7 +118,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/landing" element={<LandingPage />} />
-            <Route path="/buytoken" element={<BuyToken />} />
+            <Route path="/buy-token" element={<BuyToken />} />
           </Routes>
         </div>
       </Router>

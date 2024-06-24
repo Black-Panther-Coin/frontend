@@ -156,8 +156,8 @@ const PantherSection = () => (
       <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none">
         GET MY TOKENS
       </button>
-      <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
+      <p className="text-sm text-white mt-4">1 HARMBE AI = $0.309 USD</p>
+      <p className="text-sm text-white">Hurry - Token price increases on May 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -189,7 +189,7 @@ const PantherSection = () => (
 );
 
 
-
+import React from 'react';
 
 const RoadMap = () => (
   <section className="bg-purple-950 py-12 px-6 md:px-16 lg:px-24 text-white">
@@ -201,12 +201,12 @@ const RoadMap = () => (
         <h3 className="text-2xl font-bold mb-4 text-center">Phase 1</h3> 
         <h4 className="text-xl font-semibold mb-4 text-center">Initial Traction (Months 1-3)</h4> 
         <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Deploy Black Panther (BPNTHR) meme coin on a decentralized exchange (DEX) within 90 days.</li>
-          <li className="mb-2">🔸 Launch the Black Panther Non-Profit Foundation (BPNPF) to employ project personnel and manage charitable giving.</li>
-          <li className="mb-2">🔸 Aggressive social media marketing campaign to build a strong online community.</li>
-          <li className="mb-2">🔸 Develop a user-friendly website outlining the project's mission, roadmap, and team.</li>
-          <li className="mb-2">🔸 Organize online & offline community events to spread awareness and engage potential users (e.g., webinars, meetups in African countries with large diasporas).</li>
-          <li className="mb-2">🔸Conduct initial coin offering (ICO) or Initial DEX Offering (IDO) to raise funds for project development.</li>
+          <li className="mb-2">🔹 Deploy Black Panther (BPNTHR) meme coin on a decentralized exchange (DEX) within 90 days.</li>
+          <li className="mb-2">🔹 Launch the Black Panther Non-Profit Foundation (BPNPF) to employ project personnel and manage charitable giving.</li>
+          <li className="mb-2">🔹 Aggressive social media marketing campaign to build a strong online community.</li>
+          <li className="mb-2">🔹 Develop a user-friendly website outlining the project's mission, roadmap, and team.</li>
+          <li className="mb-2">🔹 Organize online & offline community events to spread awareness and engage potential users (e.g., webinars, meetups in African countries with large diasporas).</li>
+          <li className="mb-2">🔹 Conduct initial coin offering (ICO) or Initial DEX Offering (IDO) to raise funds for project development.</li>
         </ul>
       </div>
 
@@ -228,21 +228,70 @@ const RoadMap = () => (
         <h3 className="text-2xl font-bold mb-4 text-center">Phase 3</h3> 
         <h4 className="text-xl font-semibold mb-4 text-center">Expansion and Sustainability (Months 13-24)</h4> 
         <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Pilot launch of the Black Panther Communications App with secure global cash transfer functionalities.</li>
-          <li className="mb-2">🔸 Release the Black Panther Secure Crypto Wallet with multi-currency support and optional offline storage.</li>
-          <li className="mb-2">🔸 Explore the feasibility of building a dedicated Black Panther Blockchain or leverage existing solutions.</li>
-          <li className="mb-2">🔸 Secure strategic partnerships with established organizations in Africa and the crypto industry.</li>
-          <li className="mb-2">🔸 Continuously monitor and adapt based on market feedback, regulatory changes, and community needs.</li>
-          <li className="mb-2">🔸Implement long-term sustainability strategies through a combination of token sales, transaction fees, and ongoing fundraising efforts.</li>
+          <li className="mb-2">🔺 Pilot launch of the Black Panther Communications App with secure global cash transfer functionalities.</li>
+          <li className="mb-2">🔺 Release the Black Panther Secure Crypto Wallet with multi-currency support and optional offline storage.</li>
+          <li className="mb-2">🔺 Explore the feasibility of building a dedicated Black Panther Blockchain or leverage existing solutions.</li>
+          <li className="mb-2">🔺 Secure strategic partnerships with established organizations in Africa and the crypto industry.</li>
+          <li className="mb-2">🔺 Continuously monitor and adapt based on market feedback, regulatory changes, and community needs.</li>
+          <li className="mb-2">🔺 Implement long-term sustainability strategies through a combination of token sales, transaction fees, and ongoing fundraising efforts.</li>
         </ul>
       </div>
 
-     
-      
+      {/* Arrow linking phases */}
+      <style jsx>{`
+        .phase:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          width: 20px;
+          height: 20px;
+          border-top: 2px solid yellow;
+          border-right: 2px solid yellow;
+          transform: translateY(-50%) rotate(-45deg);
+        }
+        .phase:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -20px;
+          width: 20px;
+          height: 20px;
+          border-bottom: 2px solid yellow;
+          border-left: 2px solid yellow;
+          transform: translateY(-50%) rotate(-45deg);
+        }
+        .phase:first-child:before {
+          display: none;
+        }
+        .phase:last-child:after {
+          display: none;
+        }
+        .md\:grid-cols-2 .phase:nth-child(2):after,
+        .lg\:grid-cols-3 .phase:nth-child(3):after {
+          display: none;
+        }
+        .md\:grid-cols-2 .phase:nth-child(3):before,
+        .lg\:grid-cols-3 .phase:nth-child(4):before {
+          display: none;
+        }
+      `}</style>
       
     </div>
   </section>
 );
+
+export default RoadMap;
+
+
+
+
+
+
+
+
+
+
 
 
 const Footer = () => (

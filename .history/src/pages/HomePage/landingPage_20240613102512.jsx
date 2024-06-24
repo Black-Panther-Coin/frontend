@@ -39,13 +39,11 @@ const SocialIcons = () => (
   </div>
 );
 
-
-
 const Header = () => {
   const navigate = useNavigate();
 
   const handleProceedToBuy = () => {
-    navigate('/buytoken');
+    navigate('/BuyToken');
   };
 
   return (
@@ -57,8 +55,8 @@ const Header = () => {
           </h1>
           <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">A MEME COIN WITH PURPOSE!</p>
         </div>
-        <div className="w-full flex justify-center">
-          <img src="/src/assets/images/landingpanther.png" alt="Black Panther Token" className="w-full max-w-[90%] h-auto" />
+        <div className="w-full lg:w-full flex justify-center">
+          <img src="/src/assets/images/landingpanther.png" alt="Black Panther Token" className="w-full max-w-[90%] h-auto"/>
         </div>
       </div>
 
@@ -68,7 +66,7 @@ const Header = () => {
         </button>
 
         <div className="mt-4 text-center">
-          <h2 className="text-white font-bold">JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE</h2>
+          <h2 className="text-white-600 font-bold">JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE</h2>
           <p className="text-sm mt-2 text-purple-200">Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.</p>
           <div className="mt-4 flex flex-col items-center">
             <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
@@ -91,9 +89,6 @@ const Header = () => {
     </div>
   );
 };
-
-
-
 
 
 
@@ -156,8 +151,8 @@ const PantherSection = () => (
       <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none">
         GET MY TOKENS
       </button>
-      <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
+      <p className="text-sm text-white mt-4">1 HARMBE AI = $0.309 USD</p>
+      <p className="text-sm text-white">Hurry - Token price increases on May 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -188,61 +183,69 @@ const PantherSection = () => (
   </div>
 );
 
-
-
-
-const RoadMap = () => (
-  <section className="bg-purple-950 py-12 px-6 md:px-16 lg:px-24 text-white">
-    <h2 className="text-4xl font-bold text-center text-yellow-500 mb-8">Our Roadmap</h2>
-    <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center items-center">
-
-      {/* Phase 1: Initial Traction */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
-        <h3 className="text-2xl font-bold mb-4 text-center">Phase 1</h3> 
-        <h4 className="text-xl font-semibold mb-4 text-center">Initial Traction (Months 1-3)</h4> 
-        <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Deploy Black Panther (BPNTHR) meme coin on a decentralized exchange (DEX) within 90 days.</li>
-          <li className="mb-2">🔸 Launch the Black Panther Non-Profit Foundation (BPNPF) to employ project personnel and manage charitable giving.</li>
-          <li className="mb-2">🔸 Aggressive social media marketing campaign to build a strong online community.</li>
-          <li className="mb-2">🔸 Develop a user-friendly website outlining the project's mission, roadmap, and team.</li>
-          <li className="mb-2">🔸 Organize online & offline community events to spread awareness and engage potential users (e.g., webinars, meetups in African countries with large diasporas).</li>
-          <li className="mb-2">🔸Conduct initial coin offering (ICO) or Initial DEX Offering (IDO) to raise funds for project development.</li>
-        </ul>
+const RoadMap = () => {
+  return (
+    <div className="bg-purple-900 min-h-[50vh] flex items-center justify-center">
+      <div className="container mx-auto py-8 px-4">
+        <h1 className="text-center text-4xl font-bold text-white mb-4">ROAD MAP</h1>
+        <div className="relative mb-12 flex justify-center">
+          <div className="w-0.5 h-8 bg-yellow-500"></div>
+        </div>
+        <div className="relative">
+          {/* Horizontal Line */}
+          <div className="absolute left-0 right-0 top-8 border-t border-white" />
+          
+          <div className="flex flex-wrap justify-between items-start">
+            {/* Phase One */}
+            <div className="flex flex-col items-center animate-move m-2 sm:m-4 md:m-6">
+              <div className="relative mb-4">
+                <h2 className="text-xl font-semibold text-white">PHASE ONE</h2>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
+              </div>
+              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
+                {/* Content for Phase One */}
+              </div>
+            </div>
+            {/* Phase Two */}
+            <div className="flex flex-col items-center animate-move m-2 sm:m-4 md:m-6">
+              <div className="relative mb-4">
+                <h2 className="text-xl font-semibold text-white">PHASE TWO</h2>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
+              </div>
+              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
+                {/* Content for Phase Two */}
+              </div>
+            </div>
+            {/* Phase Three */}
+            <div className="flex flex-col items-center animate-move m-2 sm:m-4 md:m-6">
+              <div className="relative mb-4">
+                <h2 className="text-xl font-semibold text-white">PHASE THREE</h2>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
+              </div>
+              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
+                {/* Content for Phase Three */}
+              </div>
+            </div>
+            {/* Phase Four */}
+            <div className="flex flex-col items-center animate-move m-2 sm:m-4 md:m-6">
+              <div className="relative mb-4">
+                <h2 className="text-xl font-semibold text-white">PHASE FOUR</h2>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-yellow-500"></div>
+              </div>
+              <div className="bg-purple-800 h-36 w-36 rounded-lg shadow-md flex items-center justify-center">
+                {/* Content for Phase Four */}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Phase 2: Ecosystem Development */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
-        <h3 className="text-2xl font-bold mb-4 text-center">Phase 2</h3> 
-        <h4 className="text-xl font-semibold mb-4 text-center">Ecosystem Development (Months 4-12)</h4> 
-        <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Develop the Black Panther Charity Wallet on the blockchain for transparent donation tracking and fund allocation.</li>
-          <li className="mb-2">🔸 Launch the Black Panther Educational Hub with tiered educational programs on crypto, blockchain, and Web3 concepts, with a focus on African languages.</li>
-          <li className="mb-2">🔸 Integrate the BPNTHR token with existing mobile money platforms in Africa to facilitate seamless mobile transactions.</li>
-          <li className="mb-2">🔸 Begin development of the African Stablecoin pegged to a reliable basket of assets.</li>
-          <li className="mb-2">🔸 Design and develop the Play-to-Give Web3 Game with a focus on user engagement and sustainable charity integration.</li>
-        </ul>
-      </div>
-
-      {/* Phase 3: Expansion and Sustainability */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
-        <h3 className="text-2xl font-bold mb-4 text-center">Phase 3</h3> 
-        <h4 className="text-xl font-semibold mb-4 text-center">Expansion and Sustainability (Months 13-24)</h4> 
-        <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Pilot launch of the Black Panther Communications App with secure global cash transfer functionalities.</li>
-          <li className="mb-2">🔸 Release the Black Panther Secure Crypto Wallet with multi-currency support and optional offline storage.</li>
-          <li className="mb-2">🔸 Explore the feasibility of building a dedicated Black Panther Blockchain or leverage existing solutions.</li>
-          <li className="mb-2">🔸 Secure strategic partnerships with established organizations in Africa and the crypto industry.</li>
-          <li className="mb-2">🔸 Continuously monitor and adapt based on market feedback, regulatory changes, and community needs.</li>
-          <li className="mb-2">🔸Implement long-term sustainability strategies through a combination of token sales, transaction fees, and ongoing fundraising efforts.</li>
-        </ul>
-      </div>
-
-     
-      
-      
     </div>
-  </section>
-);
+  );
+};
+
+
+
+
 
 
 const Footer = () => (

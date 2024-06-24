@@ -156,8 +156,8 @@ const PantherSection = () => (
       <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none">
         GET MY TOKENS
       </button>
-      <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
+      <p className="text-sm text-white mt-4">1 HARMBE AI = $0.309 USD</p>
+      <p className="text-sm text-white">Hurry - Token price increases on May 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -228,21 +228,33 @@ const RoadMap = () => (
         <h3 className="text-2xl font-bold mb-4 text-center">Phase 3</h3> 
         <h4 className="text-xl font-semibold mb-4 text-center">Expansion and Sustainability (Months 13-24)</h4> 
         <ul className="pl-4 text-justify">
-          <li className="mb-2">🔸 Pilot launch of the Black Panther Communications App with secure global cash transfer functionalities.</li>
-          <li className="mb-2">🔸 Release the Black Panther Secure Crypto Wallet with multi-currency support and optional offline storage.</li>
-          <li className="mb-2">🔸 Explore the feasibility of building a dedicated Black Panther Blockchain or leverage existing solutions.</li>
-          <li className="mb-2">🔸 Secure strategic partnerships with established organizations in Africa and the crypto industry.</li>
-          <li className="mb-2">🔸 Continuously monitor and adapt based on market feedback, regulatory changes, and community needs.</li>
-          <li className="mb-2">🔸Implement long-term sustainability strategies through a combination of token sales, transaction fees, and ongoing fundraising efforts.</li>
+          <li className="mb-2">🔺 Pilot launch of the Black Panther Communications App with secure global cash transfer functionalities.</li>
+          <li className="mb-2">🔺 Release the Black Panther Secure Crypto Wallet with multi-currency support and optional offline storage.</li>
+          <li className="mb-2">🔺 Explore the feasibility of building a dedicated Black Panther Blockchain or leverage existing solutions.</li>
+          <li className="mb-2">🔺 Secure strategic partnerships with established organizations in Africa and the crypto industry.</li>
+          <li className="mb-2">🔺 Continuously monitor and adapt based on market feedback, regulatory changes, and community needs.</li>
+          <li className="mb-2">🔺 Implement long-term sustainability strategies through a combination of token sales, transaction fees, and ongoing fundraising efforts.</li>
         </ul>
       </div>
 
-     
+      {/* Arrow linking phases */}
       
       
     </div>
   </section>
 );
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const Footer = () => (

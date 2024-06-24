@@ -157,7 +157,7 @@ const PantherSection = () => (
         GET MY TOKENS
       </button>
       <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
+      <p className="text-sm text-white">Hurry - Token price increases on May 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -237,7 +237,7 @@ const RoadMap = () => (
         </ul>
       </div>
 
-     
+      {/* Arrow linking phases */}
       
       
     </div>
