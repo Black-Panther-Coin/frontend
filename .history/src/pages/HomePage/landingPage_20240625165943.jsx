@@ -15,11 +15,9 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion'
-import { FaWallet } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
-import { FaLightbulb, } from 'react-icons/fa';
-import { MdArrowForward } from 'react-icons/md';
+
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -43,6 +41,8 @@ const SocialIcons = () => (
   </div>
 );
 
+
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -57,55 +57,32 @@ const Header = () => {
           <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
             Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
           </h1>
-          <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
-            A MEME COIN WITH PURPOSE!
-          </p>
+          <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">A MEME COIN WITH PURPOSE!</p>
         </div>
         <div className="w-full flex justify-center">
-          <img
-            src="/src/assets/images/landingpanther.png"
-            alt="Black Panther Token"
-            className="w-full max-w-[90%] h-auto"
-          />
+          <img src="/src/assets/images/landingpanther.png" alt="Black Panther Token" className="w-full max-w-[90%] h-auto" />
         </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
-        <button className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8 flex items-center space-x-2">
-          <FaWallet /> <span>Connect Wallet</span>
+        <button className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8">
+          Connect Wallet
         </button>
 
         <div className="mt-4 text-center">
-          <h2 className="text-white font-bold">
-            JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE
-          </h2>
-          <p className="text-sm mt-2 text-purple-200">
-            Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.
-          </p>
+          <h2 className="text-white font-bold">JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE</h2>
+          <p className="text-sm mt-2 text-purple-200">Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.</p>
           <div className="mt-4 flex flex-col items-center">
             <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
             <div className="flex mt-2">
-              <input
-                type="text"
-                className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-lightbaige"
-                placeholder="USD"
-              />
-              <input
-                type="text"
-                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-lightbaige"
-                placeholder="$ BPNTHR"
-              />
+              <input type="text" className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-lightbaige" placeholder="USD" />
+              <input type="text" className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-lightbaige" placeholder="$ BPNTHR" />
             </div>
-            <button
-              onClick={handleProceedToBuy}
-              className="bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10"
-            >
+            <button onClick={handleProceedToBuy} className="bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
               Proceed to Buy
             </button>
           </div>
-          <p className="text-white text-xs mt-2 font-bold">
-            <span className="text-yellow-500">NB:</span> MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK (NOT ETHEREUM)
-          </p>
+          <p className="text-white text-xs mt-2 font-bold"><span className='text-yellow-500'>NB:</span> MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK (NOT ETHEREUM)</p>
         </div>
         <button className="bg-lightbaige text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
           White Paper
@@ -116,6 +93,10 @@ const Header = () => {
     </div>
   );
 };
+
+
+
+
 
 
 const BuySection = () => {
@@ -233,6 +214,14 @@ const PantherSection = () => (
     </div>
   </div>
 );
+
+
+
+import { FaLightbulb, } from 'react-icons/fa';
+
+
+
+import { MdArrowForward } from 'react-icons/md';
 
 const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage

@@ -43,6 +43,10 @@ const SocialIcons = () => (
   </div>
 );
 
+
+
+; // Optional: Add icons for better visuals
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -116,6 +120,11 @@ const Header = () => {
     </div>
   );
 };
+
+
+
+
+
 
 
 const BuySection = () => {
@@ -233,6 +242,10 @@ const PantherSection = () => (
     </div>
   </div>
 );
+
+
+
+
 
 const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage

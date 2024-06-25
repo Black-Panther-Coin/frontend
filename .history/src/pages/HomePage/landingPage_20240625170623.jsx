@@ -118,6 +118,11 @@ const Header = () => {
 };
 
 
+
+
+
+
+
 const BuySection = () => {
   
   const [copySuccess, setCopySuccess] = useState(false);
@@ -233,6 +238,10 @@ const PantherSection = () => (
     </div>
   </div>
 );
+
+
+
+
 
 const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage

@@ -19,15 +19,15 @@ export default {
           '0%': { opacity: '0', transform: 'translateX(50px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        rotate: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
+        pulse: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
         },
       },
       animation: {
         slideInLeft: 'slideInLeft 0.7s ease-out',
         slideInRight: 'slideInRight 0.7s ease-out',
-        rotate: 'rotate 2s linear infinite',
+        pulse: 'pulse 2s infinite',
       },
     },
   },

@@ -234,6 +234,10 @@ const PantherSection = () => (
   </div>
 );
 
+
+
+
+
 const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage
 

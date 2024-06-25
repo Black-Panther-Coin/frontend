@@ -15,11 +15,9 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion'
-import { FaWallet } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
-import { FaLightbulb, } from 'react-icons/fa';
-import { MdArrowForward } from 'react-icons/md';
+
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -42,6 +40,7 @@ const SocialIcons = () => (
     </a>
   </div>
 );
+
 
 const Header = () => {
   const navigate = useNavigate();
@@ -116,6 +115,11 @@ const Header = () => {
     </div>
   );
 };
+
+
+
+
+
 
 
 const BuySection = () => {
@@ -233,6 +237,14 @@ const PantherSection = () => (
     </div>
   </div>
 );
+
+
+
+import { FaLightbulb, } from 'react-icons/fa';
+
+
+
+import { MdArrowForward } from 'react-icons/md';
 
 const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage

@@ -23,6 +23,10 @@ export default {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        dash: {
+          '0%': { strokeDashoffset: '240' },
+          '100%': { strokeDashoffset: '0' },
+        },
       },
       animation: {
         slideInLeft: 'slideInLeft 0.7s ease-out',
