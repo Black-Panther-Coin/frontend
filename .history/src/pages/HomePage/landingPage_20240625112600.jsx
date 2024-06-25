@@ -15,7 +15,7 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion';
+//import {  } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 
 
@@ -100,7 +100,6 @@ const Header = () => {
 
 
 const BuySection = () => {
-  
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
@@ -132,43 +131,23 @@ const BuySection = () => {
 };
 
 const WhySection = () => (
-  <motion.section
-    className="bg-purple-900 py-16"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-  >
+  <section className="bg-purple-900 py-16">
     <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
       <div className="lg:w-1/2 text-center lg:text-left">
         <h2 className="text-3xl lg:text-4xl font-bold text-yellow-500 mb-4">WHY BLACK PANTHER TOKEN?</h2>
-        <p className="text-white">
-        The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
+        <p className="text-white text-base lg:text-lg leading-relaxed text-justify">
+          Black Panther Coin is created to offer a Web3/Blockchain Crypto platform that helps bring new people to the space with a meme coin.
+          We believe the strength of the powerful symbol of the Black Panther will draw people to the project's purpose.
+          We wish to leverage the awareness of the meme coin project to create awareness about health and wellness, help educate people on
+          alternative treatments including food as medicine, as well as educate and bring new people to the incredibly versatile crypto, Web3/Blockchain space
+          to build and create solutions around a myriad range of issues.
         </p>
-        <ul className="mt-8 space-y-4 text-white text-left">
-          <li className="flex items-center space-x-2">
-            <FaRocket className="text-yellow-500" />
-            <span>Support for African Development Projects</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaCogs className="text-yellow-500" />
-            <span>Technological Advancements in Blockchain</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaLightbulb className="text-yellow-500" />
-            <span>Empowering Young Entrepreneurs</span>
-          </li>
-        </ul>
       </div>
-      <motion.div
-        className="lg:w-1/2 mt-8 lg:mt-0"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <img src={pantherImage2} alt="Black Panther" className="mx-auto w-full max-w-md h-auto rounded-lg shadow-lg" />
-      </motion.div>
+      <div className="lg:w-1/2 mt-8 lg:mt-0 text-center">
+        <img src={pantherImage2} alt="Black Panther" className="w-full max-w-sm mx-auto lg:max-w-full h-auto" />
+      </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 const PantherSection = () => (
@@ -180,7 +159,7 @@ const PantherSection = () => (
         GET MY TOKENS
       </button>
       <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Expected Price at launch $0.01!</p>
+      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -217,84 +196,95 @@ const PantherSection = () => (
 
 
 
-import { FaLightbulb, } from 'react-icons/fa';
+import { FaLightbulb } from 'react-icons/fa';
 
 const RoadMap = () => (
-  <section className="bg-purple-950 py-12 px-6 md:px-16 lg:px-24 text-white">
-    <h2 className="text-4xl font-bold text-center text-yellow-500 mb-12">Our Roadmap</h2>
-    <div className="relative flex flex-col lg:flex-row justify-center items-stretch space-y-8 lg:space-y-0 lg:space-x-8">
+  <section className="bg-gray-100 py-12 px-6 md:px-16 lg:px-24 text-gray-800">
+    <h2 className="text-4xl font-bold text-center mb-12">Our Roadmap</h2>
+    <div className="flex flex-col lg:flex-row justify-center items-stretch space-y-8 lg:space-y-0 lg:space-x-8">
 
       {/* Phase 1: Initial Traction */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
+      <div className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 rounded-full w-12 h-12 flex items-center justify-center text-white text-xl font-bold">
           01
         </div>
-        <FaRocket className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Initial Traction</p>
-        <p className="text-yellow-300 mb-4">(Months 1-6)</p>
-        <div className="space-y-4">
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Meme Coin Launch</h5>
-            <p>Capture the community's imagination and support through the BPNTHR meme coin launch.</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Deploy BPNTHR meme coin on the Panther website.</p>
-            <p>Aggressive social media marketing campaign.</p>
-            <p>Develop a user-friendly website.</p>
-            <p>Conduct presale to raise funds.</p>
-            <p>Implement Social-Fi strategies.</p>
-            <p>Develop Play-to-Give Web3 Game.</p>
-            <p>Organize community events.</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Charity Wallet</h5>
-            <p>Empowering communities through the Black Panther Foundation.</p>
-          </div>
+        <h3 className="text-xl font-bold mt-8 mb-4 text-blue-600">VALUES</h3>
+        <FaRocket className="w-12 h-12 text-blue-600 mb-4" />
+        <p className="text-lg font-bold mb-4">Initial Traction</p>
+        <p className="text-gray-600">(Months 1-6)</p>
+        <div className="mt-4 space-y-4">
+          <p>Capture the community's imagination and support through the BPNTHR meme coin launch.</p>
+          <p className="text-blue-600 font-semibold">Key Activities:</p>
+          <ul className="text-left list-disc list-inside">
+            <li>Deploy BPNTHR meme coin on the Panther website.</li>
+            <li>Aggressive social media marketing campaign.</li>
+            <li>Develop a user-friendly website.</li>
+            <li>Conduct presale to raise funds.</li>
+            <li>Implement Social-Fi strategies.</li>
+            <li>Develop Play-to-Give Web3 Game.</li>
+            <li>Organize community events.</li>
+          </ul>
+          <p className="text-blue-600 font-semibold">Charity Wallet:</p>
+          <p>Empowering communities through the Black Panther Foundation.</p>
         </div>
       </div>
 
       {/* Phase 2: Ecosystem Development */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
+      <div className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 rounded-full w-12 h-12 flex items-center justify-center text-white text-xl font-bold">
           02
         </div>
-        <FaCogs className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Ecosystem Development</p>
-        <p className="text-yellow-300 mb-4">(Months 4-12)</p>
-        <div className="space-y-4">
-          <div>
-            <p className="text-lg font-bold text-yellow-200">Solidify the project's foundation and core functionalities:</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Conduct initial coin offering (ICO) or Initial DEX Offering (IDO).</p>
-            <p>Deploy BPNTHR meme coin on a decentralized exchange (DEX).</p>
-          </div>
+        <h3 className="text-xl font-bold mt-8 mb-4 text-blue-600">VISION</h3>
+        <FaCogs className="w-12 h-12 text-blue-600 mb-4" />
+        <p className="text-lg font-bold mb-4">Ecosystem Development</p>
+        <p className="text-gray-600">(Months 4-12)</p>
+        <div className="mt-4 space-y-4">
+          <p>Solidify the project's foundation and core functionalities:</p>
+          <p className="text-blue-600 font-semibold">Key Activities:</p>
+          <ul className="text-left list-disc list-inside">
+            <li>Conduct initial coin offering (ICO) or Initial DEX Offering (IDO).</li>
+            <li>Deploy BPNTHR meme coin on a decentralized exchange (DEX).</li>
+          </ul>
         </div>
       </div>
 
       {/* Phase 3: Expansion and Sustainability */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
+      <div className="bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center relative">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 rounded-full w-12 h-12 flex items-center justify-center text-white text-xl font-bold">
           03
         </div>
-        <FaLightbulb className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Expansion and Sustainability</p>
-        <p className="text-yellow-300 mb-4">(Months 13-24)</p>
-        <div className="space-y-4">
-          <div>
-            <p className="text-lg font-bold text-yellow-200">Expand the Black Panther ecosystem and establish long-term financial viability:</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Launch the Black Panther Educational Hub.</p>
-          </div>
+        <h3 className="text-xl font-bold mt-8 mb-4 text-blue-600">MISSION</h3>
+        <FaLightbulb className="w-12 h-12 text-blue-600 mb-4" />
+        <p className="text-lg font-bold mb-4">Expansion and Sustainability</p>
+        <p className="text-gray-600">(Months 13-24)</p>
+        <div className="mt-4 space-y-4">
+          <p>Expand the Black Panther ecosystem and establish long-term financial viability:</p>
+          <p className="text-blue-600 font-semibold">Key Activities:</p>
+          <ul className="text-left list-disc list-inside">
+            <li>Launch the Black Panther Educational Hub.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

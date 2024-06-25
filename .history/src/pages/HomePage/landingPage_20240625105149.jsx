@@ -15,9 +15,7 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion';
-import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
-
+import { FaCopy } from 'react-icons/fa';
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -100,7 +98,6 @@ const Header = () => {
 
 
 const BuySection = () => {
-  
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
@@ -132,43 +129,23 @@ const BuySection = () => {
 };
 
 const WhySection = () => (
-  <motion.section
-    className="bg-purple-900 py-16"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-  >
+  <section className="bg-purple-900 py-16">
     <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
       <div className="lg:w-1/2 text-center lg:text-left">
         <h2 className="text-3xl lg:text-4xl font-bold text-yellow-500 mb-4">WHY BLACK PANTHER TOKEN?</h2>
-        <p className="text-white">
-        The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
+        <p className="text-white text-base lg:text-lg leading-relaxed text-justify">
+          Black Panther Coin is created to offer a Web3/Blockchain Crypto platform that helps bring new people to the space with a meme coin.
+          We believe the strength of the powerful symbol of the Black Panther will draw people to the project's purpose.
+          We wish to leverage the awareness of the meme coin project to create awareness about health and wellness, help educate people on
+          alternative treatments including food as medicine, as well as educate and bring new people to the incredibly versatile crypto, Web3/Blockchain space
+          to build and create solutions around a myriad range of issues.
         </p>
-        <ul className="mt-8 space-y-4 text-white text-left">
-          <li className="flex items-center space-x-2">
-            <FaRocket className="text-yellow-500" />
-            <span>Support for African Development Projects</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaCogs className="text-yellow-500" />
-            <span>Technological Advancements in Blockchain</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaLightbulb className="text-yellow-500" />
-            <span>Empowering Young Entrepreneurs</span>
-          </li>
-        </ul>
       </div>
-      <motion.div
-        className="lg:w-1/2 mt-8 lg:mt-0"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <img src={pantherImage2} alt="Black Panther" className="mx-auto w-full max-w-md h-auto rounded-lg shadow-lg" />
-      </motion.div>
+      <div className="lg:w-1/2 mt-8 lg:mt-0 text-center">
+        <img src={pantherImage2} alt="Black Panther" className="w-full max-w-sm mx-auto lg:max-w-full h-auto" />
+      </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 const PantherSection = () => (
@@ -180,7 +157,7 @@ const PantherSection = () => (
         GET MY TOKENS
       </button>
       <p className="text-sm text-white mt-4">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white">Expected Price at launch $0.01!</p>
+      <p className="text-sm text-white">Hurry - Token price increases on July 25th!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center">
@@ -214,89 +191,63 @@ const PantherSection = () => (
 
 
 
-
-
-
-import { FaLightbulb, } from 'react-icons/fa';
-
 const RoadMap = () => (
   <section className="bg-purple-950 py-12 px-6 md:px-16 lg:px-24 text-white">
-    <h2 className="text-4xl font-bold text-center text-yellow-500 mb-12">Our Roadmap</h2>
-    <div className="relative flex flex-col lg:flex-row justify-center items-stretch space-y-8 lg:space-y-0 lg:space-x-8">
+    <h2 className="text-4xl font-bold text-center text-yellow-500 mb-8">Our Roadmap</h2>
+    <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center items-center">
 
       {/* Phase 1: Initial Traction */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
-          01
-        </div>
-        <FaRocket className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Initial Traction</p>
-        <p className="text-yellow-300 mb-4">(Months 1-6)</p>
-        <div className="space-y-4">
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Meme Coin Launch</h5>
-            <p>Capture the community's imagination and support through the BPNTHR meme coin launch.</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Deploy BPNTHR meme coin on the Panther website.</p>
-            <p>Aggressive social media marketing campaign.</p>
-            <p>Develop a user-friendly website.</p>
-            <p>Conduct presale to raise funds.</p>
-            <p>Implement Social-Fi strategies.</p>
-            <p>Develop Play-to-Give Web3 Game.</p>
-            <p>Organize community events.</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Charity Wallet</h5>
-            <p>Empowering communities through the Black Panther Foundation.</p>
-          </div>
-        </div>
+      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
+        <h3 className="text-2xl font-bold mb-4 text-center text-yellow-400">Phase 1</h3> 
+        <h4 className="text-xl font-semibold mb-4 text-center text-yellow-300">Initial Traction (Months 1-6)</h4> 
+        <ul className="pl-4 text-justify list-disc list-inside">
+          <li className="mb-2">
+            <strong>Meme Coin Launch:</strong> The initial phase involves the launch of the BPNTHR meme coin, designed to capture the community's imagination and support.
+            <ul className="pl-6 text-justify list-disc list-inside">
+              <li>Deploy Black Panther (BPNTHR) meme coin on the Panther website.</li>
+              <li>Aggressive social media marketing campaign to build a strong online community.</li>
+              <li>Develop a user-friendly website outlining the project's mission, roadmap, and team.</li>
+              <li>Conduct presale to raise funds for liquidity and project development.</li>
+              <li>Implement Social-Fi strategies to incentivize community actions to buy, hold, and promote BPNTHR.</li>
+              <li>Design and develop the Play-to-Give Web3 Game for platforms like Telegram to enhance token utility and engagement.</li>
+              <li>Organize online & offline community events to spread awareness and engage potential users (e.g., webinars, meetups in African countries with large diasporas).</li>
+            </ul>
+          </li>
+          <li className="mb-2">
+            <strong>Charity Wallet:</strong> The Black Panther meme Token (BPNTHR) carries a profound purpose with its charity wallet, managed by the Black Panther Foundation.
+            <ul className="pl-6 text-justify list-disc list-inside">
+              <li>Launch the Black Panther Non-Profit Foundation (BPNPF) to employ project personnel and manage charitable giving.</li>
+              <li>Develop the Black Panther Charity Wallet on the blockchain for transparent donation tracking and fund allocation.</li>
+              <li>Address health disparities affecting people of African descent globally through initiatives in health education, awareness, and treatment.</li>
+              <li>Support research and development for illnesses such as sickle cell anemia, colon cancer, and other tropical diseases like snake bites.</li>
+              <li>Promote financial literacy in the crypto, Web3, and Blockchain spaces to empower communities.</li>
+              <li>Ensure a steady flow of resources to support the foundation’s work through transaction allocations within the BPNTHR ecosystem.</li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       {/* Phase 2: Ecosystem Development */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative mb-8 lg:mb-0">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
-          02
-        </div>
-        <FaCogs className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Ecosystem Development</p>
-        <p className="text-yellow-300 mb-4">(Months 4-12)</p>
-        <div className="space-y-4">
-          <div>
-            <p className="text-lg font-bold text-yellow-200">Solidify the project's foundation and core functionalities:</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Conduct initial coin offering (ICO) or Initial DEX Offering (IDO).</p>
-            <p>Deploy BPNTHR meme coin on a decentralized exchange (DEX).</p>
-          </div>
-        </div>
+      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
+        <h3 className="text-2xl font-bold mb-4 text-center text-yellow-400">Phase 2</h3> 
+        <h4 className="text-xl font-semibold mb-4 text-center text-yellow-300">Ecosystem Development (Months 4-12)</h4> 
+        <ul className="pl-4 text-justify list-disc list-inside">
+          <li className="mb-2">Conduct initial coin offering (ICO) or Initial DEX Offering (IDO) to raise funds for massive launch and project development.</li>
+          <li className="mb-2">Deploy Black Panther (BPNTHR) meme coin on a decentralized exchange (DEX) by winter 2024.</li>
+        </ul>
       </div>
 
       {/* Phase 3: Expansion and Sustainability */}
-      <div className="bg-purple-800 rounded-lg p-6 shadow-md flex flex-col items-center text-center relative">
-        <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-purple-800 text-2xl font-bold mb-4">
-          03
-        </div>
-        <FaLightbulb className="w-16 h-16 text-yellow-400 mb-4" />
-        <p className="text-lg font-semibold mb-4">Expansion and Sustainability</p>
-        <p className="text-yellow-300 mb-4">(Months 13-24)</p>
-        <div className="space-y-4">
-          <div>
-            <p className="text-lg font-bold text-yellow-200">Expand the Black Panther ecosystem and establish long-term financial viability:</p>
-          </div>
-          <div>
-            <h5 className="text-lg font-bold text-yellow-200">Key Activities:</h5>
-            <p>Launch the Black Panther Educational Hub.</p>
-          </div>
-        </div>
+      <div className="bg-purple-800 rounded-lg p-6 shadow-md relative phase">
+        <h3 className="text-2xl font-bold mb-4 text-center text-yellow-400">Phase 3</h3> 
+        <h4 className="text-xl font-semibold mb-4 text-center text-yellow-300">Expansion and Sustainability (Months 13-24)</h4> 
+        <ul className="pl-4 text-justify list-disc list-inside">
+          <li className="mb-2">Launch the Black Panther Educational Hub with tiered educational programs on crypto, blockchain, and Web3 concepts, with a focus on African languages.</li>
+        </ul>
       </div>
     </div>
   </section>
 );
-
-
 
 
 

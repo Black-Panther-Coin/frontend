@@ -15,7 +15,8 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion';
+import Popup from "../../components/Popups/propUps";
+//import {  } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 
 
@@ -45,6 +46,7 @@ const SocialIcons = () => (
 
 const Header = () => {
   const navigate = useNavigate();
+  
 
   const handleProceedToBuy = () => {
     navigate('/buytoken');
@@ -100,7 +102,6 @@ const Header = () => {
 
 
 const BuySection = () => {
-  
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
@@ -132,43 +133,20 @@ const BuySection = () => {
 };
 
 const WhySection = () => (
-  <motion.section
-    className="bg-purple-900 py-16"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-  >
+  <section className="bg-purple-900 py-16">
     <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
       <div className="lg:w-1/2 text-center lg:text-left">
         <h2 className="text-3xl lg:text-4xl font-bold text-yellow-500 mb-4">WHY BLACK PANTHER TOKEN?</h2>
-        <p className="text-white">
+        <p className="text-white text-base lg:text-lg leading-relaxed text-justify">
         The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
+
         </p>
-        <ul className="mt-8 space-y-4 text-white text-left">
-          <li className="flex items-center space-x-2">
-            <FaRocket className="text-yellow-500" />
-            <span>Support for African Development Projects</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaCogs className="text-yellow-500" />
-            <span>Technological Advancements in Blockchain</span>
-          </li>
-          <li className="flex items-center space-x-2">
-            <FaLightbulb className="text-yellow-500" />
-            <span>Empowering Young Entrepreneurs</span>
-          </li>
-        </ul>
       </div>
-      <motion.div
-        className="lg:w-1/2 mt-8 lg:mt-0"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-      >
-        <img src={pantherImage2} alt="Black Panther" className="mx-auto w-full max-w-md h-auto rounded-lg shadow-lg" />
-      </motion.div>
+      <div className="lg:w-1/2 mt-8 lg:mt-0 text-center">
+        <img src={pantherImage2} alt="Black Panther" className="w-full max-w-sm mx-auto lg:max-w-full h-auto" />
+      </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 const PantherSection = () => (

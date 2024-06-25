@@ -16,6 +16,7 @@ import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
 import { motion } from 'framer-motion';
+//import {  } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 
 

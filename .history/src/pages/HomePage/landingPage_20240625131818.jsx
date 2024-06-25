@@ -16,6 +16,7 @@ import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
 import { motion } from 'framer-motion';
+//import {  } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 
 
@@ -100,7 +101,12 @@ const Header = () => {
 
 
 const BuySection = () => {
-  
+  <motion.section
+    className="bg-purple-900 py-16"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  ></motion.section>
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
@@ -129,6 +135,7 @@ const BuySection = () => {
       </div>
     </div>
   );
+  
 };
 
 const WhySection = () => (

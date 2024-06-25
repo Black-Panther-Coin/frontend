@@ -15,7 +15,7 @@ import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
-import { motion } from 'framer-motion';
+//import {  } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 
 
@@ -100,7 +100,6 @@ const Header = () => {
 
 
 const BuySection = () => {
-  
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
@@ -142,7 +141,8 @@ const WhySection = () => (
       <div className="lg:w-1/2 text-center lg:text-left">
         <h2 className="text-3xl lg:text-4xl font-bold text-yellow-500 mb-4">WHY BLACK PANTHER TOKEN?</h2>
         <p className="text-white">
-        The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
+          Black Panther Token (BPNTHR) is not just a cryptocurrency, it's a movement.
+          By focusing on community-driven projects, BPNTHR is set to revolutionize the cryptocurrency space in the continent.
         </p>
         <ul className="mt-8 space-y-4 text-white text-left">
           <li className="flex items-center space-x-2">

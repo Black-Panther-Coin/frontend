@@ -1,0 +1,133 @@
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+  /* @media only screen and (min-width: 390px) {
+    
+    #animated {
+      margin-top: 18em;
+    }
+  } */
+
+  /* @keyframes move {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-move {
+    animation: move 2s ease-in-out infinite;
+  } */
+  
+
+  /* Add this CSS to your styles.css or equivalent file */
+.roadmap-section {
+  background-color: #f5f5f5;
+  padding: 3rem 1.5rem;
+}
+
+.roadmap-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.roadmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.roadmap-container-lg {
+  flex-direction: row;
+}
+
+.roadmap-phase {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.roadmap-phase-number {
+  background-color: #1d4ed8;
+  color: #ffffff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.roadmap-phase-title {
+  color: #1d4ed8;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.roadmap-phase-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #1d4ed8;
+  margin-bottom: 1rem;
+}
+
+.roadmap-phase-subtitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-phase-timeline {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.roadmap-phase-text {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.roadmap-phase-key-activities {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.roadmap-phase-key-activities h5 {
+  color: #1d4ed8;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-phase-key-activities ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+
+  
