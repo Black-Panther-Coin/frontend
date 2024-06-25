@@ -20,7 +20,7 @@ import { FaWallet } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 import { FaLightbulb, } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
-import ChatComponent from "../../components/Chat/chatComponent"
+import chatComponent from "../../components/Chat/chatComponent"
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -344,7 +344,7 @@ const Footer = () => (
       <h4 className="text-white text-lg font-bold">BLACK PANTHER (BPNTHR)</h4>
       <SocialIcons />
     </div>
-    <ChatComponent />
+    <chatComponent />
   </div>
 );
 

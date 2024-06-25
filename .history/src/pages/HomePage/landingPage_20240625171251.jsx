@@ -8,7 +8,7 @@ import {
   faTiktok,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import pantherImage2 from "../../assets/images/new2.png";
+import pantherImage2 from "../../assets/images/landing.png";
 import pantherImage from '../../assets/images/new.png';
 import buyImage from '../../assets/images/buy.png';
 import pantherIcon from '../../assets/images/image.png';
@@ -20,7 +20,6 @@ import { FaWallet } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 import { FaLightbulb, } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
-import ChatComponent from "../../components/Chat/chatComponent"
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -44,8 +43,6 @@ const SocialIcons = () => (
   </div>
 );
 
-
-
 const Header = () => {
   const navigate = useNavigate();
 
@@ -54,7 +51,7 @@ const Header = () => {
   };
 
   return (
-    <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
+    <div className="relative min-h-[70vh] overflow-hidden bg-lightbaige">
       <div className="flex flex-col justify-center items-center h-full text-center mt-8">
         <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
           <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
@@ -66,7 +63,7 @@ const Header = () => {
         </div>
         <div className="w-full flex justify-center">
           <img
-            src="/src/assets/images/langing1.png"
+            src="/src/assets/images/landingpanther.png"
             alt="Black Panther Token"
             className="w-full max-w-[90%] h-auto"
           />
@@ -90,12 +87,12 @@ const Header = () => {
             <div className="flex mt-2">
               <input
                 type="text"
-                className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
+                className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-lightbaige"
                 placeholder="USD"
               />
               <input
                 type="text"
-                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
+                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-lightbaige"
                 placeholder="$ BPNTHR"
               />
             </div>
@@ -110,7 +107,7 @@ const Header = () => {
             <span className="text-yellow-500">NB:</span> MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK (NOT ETHEREUM)
           </p>
         </div>
-        <button className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
+        <button className="bg-lightbaige text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
           White Paper
         </button>
 
@@ -119,9 +116,6 @@ const Header = () => {
     </div>
   );
 };
-
-
-
 
 
 const BuySection = () => {
@@ -344,7 +338,6 @@ const Footer = () => (
       <h4 className="text-white text-lg font-bold">BLACK PANTHER (BPNTHR)</h4>
       <SocialIcons />
     </div>
-    <ChatComponent />
   </div>
 );
 
