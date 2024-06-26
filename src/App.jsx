@@ -77,6 +77,9 @@ import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import BuyToken from './components/BuyTokens/BuyToken';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 const projectId = "45ff7348e614a721653a8d6d577b43da";
 const metadata = {

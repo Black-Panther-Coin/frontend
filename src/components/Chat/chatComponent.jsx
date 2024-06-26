@@ -105,7 +105,7 @@ const PantherAIChat = () => {
                         <input
                             className="flex-grow px-4 py-2 mr-2 bg-white border border-gray-300 rounded text-black focus:outline-none focus:ring-2 focus:ring-yellow-500"
                             type="text"
-                            placeholder="message PantherAI..."
+                            placeholder="Message PantherAI..."
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                         />

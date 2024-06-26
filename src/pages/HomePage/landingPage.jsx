@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,6 +21,8 @@ import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook 
 import { FaLightbulb, } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
 import ChatComponent from "../../components/Chat/chatComponent"
+
+
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -45,15 +47,19 @@ const SocialIcons = () => (
 );
 
 
-
 const Header = () => {
   const navigate = useNavigate();
+  
 
   const handleProceedToBuy = () => {
     navigate('/buytoken');
   };
 
+ 
+
   return (
+
+    <>
     <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
       <div className="flex flex-col justify-center items-center h-full text-center mt-8">
         <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
@@ -72,6 +78,8 @@ const Header = () => {
           />
         </div>
       </div>
+
+      
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
         <button className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8 flex items-center space-x-2">
@@ -117,14 +125,16 @@ const Header = () => {
         <div className="absolute inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
       </div>
     </div>
+    
+  </>
   );
 };
 
 
 
-
-
 const BuySection = () => {
+
+ 
   
   const [copySuccess, setCopySuccess] = useState(false);
 
@@ -152,7 +162,9 @@ const BuySection = () => {
           </p>
         </div>
       </div>
+     
     </div>
+    
   );
 };
 
@@ -200,41 +212,45 @@ const PantherSection = () => (
   <div className="bg-purple-800 rounded-lg shadow-md overflow-hidden max-w-7xl mx-auto my-8 p-4 flex flex-col lg:flex-row lg:items-start">
     <div className="lg:w-1/3 p-4 text-center">
       <h3 className="text-2xl font-bold text-white animate-slideIn">
-        Black Panther Token Is Set To Rock The Charts With a Whopping 100% ROI (This Year Alone!)
+      The Black Panther Token (BPNTHR) transcends the typical crypto narrative;  
       </h3>
       <p className="text-base text-white my-4 animate-slideIn">
-        Each successful trade triggers the purchase and immediate burning of Black panther Tokens, increasing demand, reducing supply, and driving prices to the moon.
+      it’s a beacon of hope and empowerment in the digital realm.This isn’t just another meme token—it’s a potent symbol of change and a harbinger of a new era in finance across the African continent.
       </p>
       <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
-        GET MY TOKENS
+        BUY TOKENS
       </button>
       <p className="text-sm text-white mt-4 animate-slideIn">1 BPNTHR  = $0.0001 USD</p>
       <p className="text-sm text-white animate-slideIn">Expected Price at launch $0.01!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">Hassle-Free Profits</h4>
-        <p className="text-white">No active trading needed! Simply hold the tokens and watch your gains grow.</p>
+        <h4 className="text-xl font-bold text-white">Charity Funds</h4>
+        <p className="text-white">funds health education, awareness, treatment, and research for diseases affecting African people globally, and supports education in crypto, Web3/blockchain
+        .</p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">Decentralized Hedge Fund</h4>
-        <p className="text-white">Operates on its own and shares profits directly with the community of token holders.</p>
+        <h4 className="text-xl font-bold text-white">Transactions Token</h4>
+        <p className="text-white">designed to slash fees on mobile money transactions.
+        </p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">Auto-trading AI Bot</h4>
-        <p className="text-white">The AI takes care of it all, essentially doing everything an expert trader would do.</p>
+        <h4 className="text-xl font-bold text-white">Stable Coin</h4>
+        <p className="text-white">akin to Tether, (USDT) BUSD, or USDC offering a stable coin alternative that is authentically African. </p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">Buy Back & Burn Cycle</h4>
-        <p className="text-white">It buys back its own tokens, steadily reducing the supply and increasing their value.</p>
+        <h4 className="text-xl font-bold text-white">Web3 Texting & Money Transfer App</h4>
+        <p className="text-white">he texting app that uses phone numbers will be developed, doubling as a Web3 money transfer application
+        </p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">20x Gain For Pre-Sale</h4>
-        <p className="text-white">The pre-sale allows you to get tokens starting at $0.05 each, increasing every 48 hours. They will be publicly listed on Uniswap for $1 per token!</p>
+        <h4 className="text-xl font-bold text-white">Secure Crypto Wallet</h4>
+        <p className="text-white">We will deploy a crypto wallet with multi-currency support & optional offline storage!</p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">24/7 Blockchain Trading</h4>
-        <p className="text-white">The AI bot executes accurate trades round-the-clock on top cryptocurrencies.</p>
+        <h4 className="text-xl font-bold text-white">Black Panther Blockchain/Protocol</h4>
+        <p className="text-white">Our Blockchain seeks to offer real world solutions harnessing the power of Web3 as well as AI & ML. 
+       </p>
       </div>
     </div>
   </div>
@@ -244,6 +260,7 @@ const RoadMap = () => {
   const currentStage = 1; //this value to mark the current stage
 
   return (
+    <>
     <section className="bg-purple-950 py-12 px-6 md:px-16 lg:px-24 text-white">
       <h2 className="text-4xl font-bold text-center text-yellow-500 mb-12 animate-slideInRight">
         Our Roadmap
@@ -334,6 +351,7 @@ const RoadMap = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
