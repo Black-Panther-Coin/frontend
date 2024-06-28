@@ -23,6 +23,9 @@ import { MdArrowForward } from 'react-icons/md';
 import ChatComponent from "../../components/Chat/chatComponent"
 
 
+import axios from "axios";
+
+
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
 
@@ -53,7 +56,98 @@ const Header = () => {
 
   const handleProceedToBuy = () => {
     navigate('/buytoken');
+
+    // const options = {
+    //   method: 'POST',
+    //   url: 'https://api.radom.com/checkout_session',
+    //   headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+    //   data: {
+    //     lineItems: [
+    //       {
+    //         productId: '5ca06439-fe63-4d7d-9a11-61f83ebf1442',
+    //         itemData: {
+    //           name: 'Black panther',
+    //           description: 'Buy and enjoy it oaky',
+    //           chargingIntervalSeconds: 0,
+    //           price: 40,
+    //           imageUrl: 'string',
+    //           isMetered: false,
+    //           currency: 'USD',
+    //           sendSubscriptionEmails: true
+    //         }
+    //       }
+    //     ],
+    //     //total: 40,
+    //     currency: 'USD',
+    //     gateway: {
+    //       managed: {methods: [
+    //         {network: 'BNB', token: null, discountPercentOff: 0},
+    //         // {network: 'SepoliaTestnet', token: null, discountPercentOff: 0},
+    //         // {network: 'PolygonTestnet', token: null, discountPercentOff: 0},
+    //         // {network: 'TronTestnet', token: null, discountPercentOff: 0},
+    //         // {network: 'SolanaTestnet', token: null, discountPercentOff: 0}
+    //       ]}
+    //     },
+    //     successUrl: 'http://localhost:5173/buytoken',
+    //     cancelUrl: 'https://blackpanthertkn.com/',
+    //     metadata: [{key: 'string', value: 'string'}],
+    //     expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minutes from now
+    //     customizations: {
+    //       leftPanelColor: '#F8F5ED',
+    //       primaryButtonColor: 'blue',
+    //       slantedEdge: true,
+    //       allowDiscountCodes: false
+    //     },
+    //     chargeCustomerNetworkFee: true
+    //   }
+    // };
+
+    //0xee786a1aa32fc164cca9a28f763fbc835e748129
+
+    // axios.request(options).then(function (response) {
+    //   console.log(response.data);
+    // }).catch(function (error) {
+    //   console.error(error);
+    // });
+
+    // const options = {
+    //   method: 'POST',
+    //   url: 'https://api.radom.com/product/create',
+    //   headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+    //   data: {
+    //     currency: 'USD', 
+    //     description: 'panther from code',
+    //     name: 'PNTHR', 
+    //     price: 1,
+    //     addOns: [],
+    //     image: null,
+    //     sendSubscriptionEmails: true,
+    //     productType: {
+    //       Presale: {
+    //         Token: {
+    //           ticker: "BPNTHR",
+    //           decimals: 18,
+    //           totalRaiseAmount: 1000000
+    //         }
+    //       }
+    //     }
+    //   }
+    // };
+    
+    // axios.request(options).then(function (response) {
+    //   console.log(response.data);
+    // }).catch(function (error) {
+    //   console.error(error);
+    // });
+
+
   };
+
+ // Function to get a future Unix timestamp in seconds
+const getFutureTimestamp = (minutes) => {
+  const now = Math.floor(Date.now() / 1000); // Current time in seconds
+  return now + (minutes * 60); // Add the specified number of minutes
+};
 
  
 
