@@ -25,6 +25,7 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "constate": "^3.3.2",
     "dotenv": "^16.4.5",
     "ethers": "^5.7.0",
     "framer-motion": "^11.2.12",

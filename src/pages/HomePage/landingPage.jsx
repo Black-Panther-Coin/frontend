@@ -24,6 +24,7 @@ import ChatComponent from "../../components/Chat/chatComponent"
 
 
 import axios from "axios";
+import { useAuthentication } from '../../components/utils/provider';
 
 
 
@@ -52,102 +53,129 @@ const SocialIcons = () => (
 
 const Header = () => {
   const navigate = useNavigate();
-  
+  const [usdInputValue, setUsdInputValue] = useState("")
+  const [bpnthrInputValue, setBpnthrInputValue] = useState("")
+
+  const { setPointsToSave } = useAuthentication()
+
+  const onSetUSDInput = async (val) => {
+    setUsdInputValue(val)
+    const bnthr = await calculateBNTHRToGet(val)
+    setBpnthrInputValue(bnthr)
+    setPointsToSave(bnthr)
+  }
+
+  const onSetBpnthr = async (val) => {
+    setBpnthrInputValue(val)
+    setPointsToSave(val)
+    const usd = await calculateUSDToPay(val)
+    setUsdInputValue(usd)
+  }
+
+  const calculateBNTHRToGet = async (val) => {
+    const target = 1000000
+    const totalSuply = 10000000000
+    return val / (target / totalSuply)
+  }
+
+  const calculateUSDToPay = async (val) => {
+    const target = 1000000
+    const totalSuply = 10000000000
+    return val * (target / totalSuply)
+  }
 
   const handleProceedToBuy = () => {
-    navigate('/buytoken');
+    //navigate('/buytoken');
 
-    // const options = {
-    //   method: 'POST',
-    //   url: 'https://api.radom.com/checkout_session',
-    //   headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
-    //   data: {
-    //     lineItems: [
-    //       {
-    //         productId: '5ca06439-fe63-4d7d-9a11-61f83ebf1442',
-    //         itemData: {
-    //           name: 'Black panther',
-    //           description: 'Buy and enjoy it oaky',
-    //           chargingIntervalSeconds: 0,
-    //           price: 40,
-    //           imageUrl: 'string',
-    //           isMetered: false,
-    //           currency: 'USD',
-    //           sendSubscriptionEmails: true
-    //         }
-    //       }
-    //     ],
-    //     //total: 40,
-    //     currency: 'USD',
-    //     gateway: {
-    //       managed: {methods: [
-    //         {network: 'BNB', token: null, discountPercentOff: 0},
-    //         // {network: 'SepoliaTestnet', token: null, discountPercentOff: 0},
-    //         // {network: 'PolygonTestnet', token: null, discountPercentOff: 0},
-    //         // {network: 'TronTestnet', token: null, discountPercentOff: 0},
-    //         // {network: 'SolanaTestnet', token: null, discountPercentOff: 0}
-    //       ]}
-    //     },
-    //     successUrl: 'http://localhost:5173/buytoken',
-    //     cancelUrl: 'https://blackpanthertkn.com/',
-    //     metadata: [{key: 'string', value: 'string'}],
-    //     expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minutes from now
-    //     customizations: {
-    //       leftPanelColor: '#F8F5ED',
-    //       primaryButtonColor: 'blue',
-    //       slantedEdge: true,
-    //       allowDiscountCodes: false
-    //     },
-    //     chargeCustomerNetworkFee: true
-    //   }
-    // };
-
-    //0xee786a1aa32fc164cca9a28f763fbc835e748129
-
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
-
-    // const options = {
-    //   method: 'POST',
-    //   url: 'https://api.radom.com/product/create',
-    //   headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
-    //   data: {
-    //     currency: 'USD', 
-    //     description: 'panther from code',
-    //     name: 'PNTHR', 
-    //     price: 1,
-    //     addOns: [],
-    //     image: null,
-    //     sendSubscriptionEmails: true,
-    //     productType: {
-    //       Presale: {
-    //         Token: {
-    //           ticker: "BPNTHR",
-    //           decimals: 18,
-    //           totalRaiseAmount: 1000000
-    //         }
-    //       }
-    //     }
-    //   }
-    // };
+    const options = {
+      method: 'POST',
+      url: 'https://api.radom.com/product/create',
+      headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+      data: {
+        currency: 'USD', 
+        description: 'Black panther token, meme coin with purpose',
+        name: 'PNTHR', 
+        price: usdInputValue,
+        addOns: [],
+        image: null,
+        sendSubscriptionEmails: true,
+        productType: {
+          Presale: {
+            Token: {
+              ticker: "BPNTHR",
+              decimals: 18,
+              totalRaiseAmount: 10000000
+            }
+          }
+        }
+      }
+    };
     
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+      const options = {
+        method: 'POST',
+        url: 'https://api.radom.com/checkout_session',
+        headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+        data: {
+          lineItems: [
+            {
+              productId: response.data.id,
+              itemData: {
+                name: 'Black panther Token',
+                description: 'Black panther token, meme coin with purpose',
+                chargingIntervalSeconds: 0,
+                price: usdInputValue,
+                imageUrl: 'string',
+                isMetered: false,
+                currency: 'USD',
+                sendSubscriptionEmails: true
+              }
+            }
+          ],
+          currency: 'USD',
+          gateway: {
+            managed: {methods: [
+              //{network: 'BNB', token: null, discountPercentOff: 0},
+              {network: 'SepoliaTestnet', token: null, discountPercentOff: 0},
+              {network: 'PolygonTestnet', token: null, discountPercentOff: 0},
+              {network: 'TronTestnet', token: null, discountPercentOff: 0},
+              {network: 'SolanaTestnet', token: null, discountPercentOff: 0}
+            ]}
+          },
+          successUrl: 'http://localhost:5173/my_points',
+          cancelUrl: 'http://localhost:5173',
+          metadata: [{key: 'string', value: 'string'}],
+          expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minutes from now
+          customizations: {
+            leftPanelColor: '#F8F5ED',
+            primaryButtonColor: 'blue',
+            slantedEdge: true,
+            allowDiscountCodes: false
+          },
+          chargeCustomerNetworkFee: true
+        }
+      };
 
+      axios.request(options).then(function (response) {
+        console.log(response.data);
+        window.location.href = response.data.checkoutSessionUrl
+      }).catch(function (error) {
+        console.error(error);
+      });
+    }).catch(function (error) {
+      console.error(error);
+    });
+
+    
 
   };
 
- // Function to get a future Unix timestamp in seconds
-const getFutureTimestamp = (minutes) => {
-  const now = Math.floor(Date.now() / 1000); // Current time in seconds
-  return now + (minutes * 60); // Add the specified number of minutes
-};
+  // Function to get a future Unix timestamp in seconds
+  const getFutureTimestamp = (minutes) => {
+    const now = Math.floor(Date.now() / 1000); // Current time in seconds
+    return now + (minutes * 60); // Add the specified number of minutes
+  };
 
  
 
@@ -194,11 +222,15 @@ const getFutureTimestamp = (minutes) => {
                 type="text"
                 className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
                 placeholder="USD"
+                value={usdInputValue}
+                onChange={(e) => onSetUSDInput(e.target.value)}
               />
               <input
                 type="text"
-                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
+                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1] ml-1"
                 placeholder="$ BPNTHR"
+                value={bpnthrInputValue}
+                onChange={(e) => onSetBpnthr(e.target.value)}
               />
             </div>
             <button
@@ -209,12 +241,17 @@ const getFutureTimestamp = (minutes) => {
             </button>
           </div>
           <p className="text-white text-xs mt-2 font-bold">
-            <span className="text-yellow-500">NB:</span> MAKE SURE YOUR WALLET IS SET TO BNB SMARTCHAIN NETWORK (NOT ETHEREUM)
+            <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS XXX....XXX
           </p>
         </div>
-        <button className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
-          White Paper
-        </button>
+        <div>
+          <button className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
+            White Paper
+          </button>
+          <button onClick={() => window.location.href = "/my_points"} className="bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
+            See Points
+          </button>
+        </div>
 
         <div className="absolute inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
       </div>

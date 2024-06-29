@@ -6,6 +6,7 @@ import LandingPage from "./pages/HomePage/landingPage";
 import BuyToken from './components/BuyTokens/BuyToken';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { LoginProvider } from "./components/utils/provider";
 
 
 //const projectId = "45ff7348e614a721653a8d6d577b43da";
@@ -13,14 +14,16 @@ import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
   return (
-    <Router>
-      <div className="h-screen">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/buytoken" element={<BuyToken />} />
-        </Routes>
-      </div>
-    </Router>
+    <LoginProvider>
+      <Router>
+        <div className="h-screen">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/my_points" element={<BuyToken />} />
+          </Routes>
+        </div>
+      </Router>
+    </LoginProvider>
   );
 }
 
