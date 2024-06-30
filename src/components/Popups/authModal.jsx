@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
-import axios from 'axios'; 
-import { useNavigate } from 'react-router-dom'; 
-import { toast } from 'react-toastify'; 
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useAuthentication } from '../utils/provider';
 
 const AuthModal = ({ isOpen, toggleModal }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    walletAddress: '', 
+    walletAddress: '',
   });
-  const navigate = useNavigate(); 
+  const { setIsAuthenticated } = useAuthentication();
 
   const handleFormSwitch = () => setIsLogin(!isLogin);
 
@@ -24,24 +24,32 @@ const AuthModal = ({ isOpen, toggleModal }) => {
       let response;
       if (isLogin) {
         response = await axios.post('http://localhost:9080/api/user/signin', formData);
+        if (response.status === 200) {
+          localStorage.setItem("token_key_Bpnthr", response.data.token);
+          localStorage.setItem("expiresIn", response.data.expiresIn);
+          toast.success('Login successful! Redirecting to homepage...');
+          setIsAuthenticated(true);
+          toggleModal(); // Close modal on successful login
+        }
       } else {
         response = await axios.post('http://localhost:9080/api/user/signup', formData);
-       
-        toast.success('Signup successful! Please login to continue.');
-       
-        navigate('/');
+        if (response.status === 201) {
+          toast.success('Signup successful! Please login to continue.');
+          setIsLogin(true); // Switch to login form
+        }
       }
-      console.log('Response:', response.data); 
-
+      console.log('Response:', response.data);
     } catch (error) {
-      console.error('Authentication error:', error); 
+      console.error('Authentication error:', error);
       if (error.response) {
-        console.log('Server error:', error.response.data); 
-        
+        console.log('Server error:', error.response.data);
+        toast.error(error.response.data.message || 'Authentication error');
       } else if (error.request) {
-        console.log('Request error:', error.request); 
+        console.log('Request error:', error.request);
+        toast.error('Request error');
       } else {
-        console.log('General error:', error.message); 
+        console.log('General error:', error.message);
+        toast.error('General error');
       }
     }
   };
@@ -74,7 +82,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -91,7 +99,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -109,7 +117,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
                   required
                   value={formData.walletAddress}
                   onChange={handleChange}
-                  className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
