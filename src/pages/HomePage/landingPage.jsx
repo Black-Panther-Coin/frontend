@@ -21,10 +21,12 @@ import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook 
 import { FaLightbulb, } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
 import ChatComponent from "../../components/Chat/chatComponent"
+import { toast } from 'react-toastify'
 
 
 import axios from "axios";
 import { useAuthentication } from '../../components/utils/provider';
+import AuthModal from '../../components/Popups/authModal'
 
 
 
@@ -51,50 +53,59 @@ const SocialIcons = () => (
 );
 
 
+
 const Header = () => {
   const navigate = useNavigate();
-  const [usdInputValue, setUsdInputValue] = useState("")
-  const [bpnthrInputValue, setBpnthrInputValue] = useState("")
+  const [usdInputValue, setUsdInputValue] = useState('');
+  const [bpnthrInputValue, setBpnthrInputValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { setPointsToSave } = useAuthentication()
+  const { currentUser, setPointsToSave } = useAuthentication();
 
   const onSetUSDInput = async (val) => {
-    setUsdInputValue(val)
-    const bnthr = await calculateBNTHRToGet(val)
-    setBpnthrInputValue(bnthr)
-    setPointsToSave(bnthr)
-  }
+    setUsdInputValue(val);
+    const bnthr = await calculateBNTHRToGet(val);
+    setBpnthrInputValue(bnthr);
+    setPointsToSave(bnthr);
+  };
 
   const onSetBpnthr = async (val) => {
-    setBpnthrInputValue(val)
-    setPointsToSave(val)
-    const usd = await calculateUSDToPay(val)
-    setUsdInputValue(usd)
-  }
+    setBpnthrInputValue(val);
+    setPointsToSave(val);
+    const usd = await calculateUSDToPay(val);
+    setUsdInputValue(usd);
+  };
 
   const calculateBNTHRToGet = async (val) => {
-    const target = 1000000
-    const totalSuply = 10000000000
-    return val / (target / totalSuply)
-  }
+    const target = 1000000;
+    const totalSupply = 10000000000;
+    return val / (target / totalSupply);
+  };
 
   const calculateUSDToPay = async (val) => {
-    const target = 1000000
-    const totalSuply = 10000000000
-    return val * (target / totalSuply)
-  }
+    const target = 1000000;
+    const totalSupply = 10000000000;
+    return val * (target / totalSupply);
+  };
 
   const handleProceedToBuy = () => {
-    //navigate('/buytoken');
+    // Ensure the user is authenticated
+    if (!currentUser) {
+      toggleModal();
+      return;
+    }
 
     const options = {
       method: 'POST',
       url: 'https://api.radom.com/product/create',
-      headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='
+      },
       data: {
-        currency: 'USD', 
+        currency: 'USD',
         description: 'Black panther token, meme coin with purpose',
-        name: 'PNTHR', 
+        name: 'PNTHR',
         price: usdInputValue,
         addOns: [],
         image: null,
@@ -110,13 +121,16 @@ const Header = () => {
         }
       }
     };
-    
+
     axios.request(options).then(function (response) {
       console.log(response.data);
       const options = {
         method: 'POST',
         url: 'https://api.radom.com/checkout_session',
-        headers: {'Content-Type': 'application/json', Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='},
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='
+        },
         data: {
           lineItems: [
             {
@@ -135,18 +149,17 @@ const Header = () => {
           ],
           currency: 'USD',
           gateway: {
-            managed: {methods: [
-              //{network: 'BNB', token: null, discountPercentOff: 0},
-              {network: 'SepoliaTestnet', token: null, discountPercentOff: 0},
-              {network: 'PolygonTestnet', token: null, discountPercentOff: 0},
-              {network: 'TronTestnet', token: null, discountPercentOff: 0},
-              {network: 'SolanaTestnet', token: null, discountPercentOff: 0}
-            ]}
+            managed: { methods: [
+              { network: 'SepoliaTestnet', token: null, discountPercentOff: 0 },
+              { network: 'PolygonTestnet', token: null, discountPercentOff: 0 },
+              { network: 'TronTestnet', token: null, discountPercentOff: 0 },
+              { network: 'SolanaTestnet', token: null, discountPercentOff: 0 }
+            ] }
           },
           successUrl: 'http://localhost:5173/my_points',
           cancelUrl: 'http://localhost:5173',
-          metadata: [{key: 'string', value: 'string'}],
-          expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minutes from now
+          metadata: [{ key: 'string', value: 'string' }],
+          expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minute from now
           customizations: {
             leftPanelColor: '#F8F5ED',
             primaryButtonColor: 'blue',
@@ -159,16 +172,13 @@ const Header = () => {
 
       axios.request(options).then(function (response) {
         console.log(response.data);
-        window.location.href = response.data.checkoutSessionUrl
+        window.location.href = response.data.checkoutSessionUrl;
       }).catch(function (error) {
         console.error(error);
       });
     }).catch(function (error) {
       console.error(error);
     });
-
-    
-
   };
 
   // Function to get a future Unix timestamp in seconds
@@ -177,91 +187,106 @@ const Header = () => {
     return now + (minutes * 60); // Add the specified number of minutes
   };
 
- 
+  const toggleModal = () => {
+    console.log("Modal toggled");
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
-
     <>
-    <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
-      <div className="flex flex-col justify-center items-center h-full text-center mt-8">
-        <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
-            Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
-          </h1>
-          <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
-            A MEME COIN WITH PURPOSE!
-          </p>
+      <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
+        <div className="flex flex-col justify-center items-center h-full text-center mt-8">
+          <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
+              Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
+            </h1>
+            <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
+              A MEME COIN WITH PURPOSE!
+            </p>
+          </div>
+          <div className="w-full flex justify-center">
+            <img
+              src="/src/assets/images/langing1.png"
+              alt="Black Panther Token"
+              className="w-full max-w-[90%] h-auto"
+            />
+          </div>
         </div>
-        <div className="w-full flex justify-center">
-          <img
-            src="/src/assets/images/langing1.png"
-            alt="Black Panther Token"
-            className="w-full max-w-[90%] h-auto"
-          />
-        </div>
-      </div>
 
-      
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
+          <button
+            onClick={toggleModal}
+            className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8 flex items-center space-x-2"
+          >
+            <FaWallet /> <span>{currentUser ? 'Logged In' : 'Login / Sign up'}</span>
+          </button>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
-        <button className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8 flex items-center space-x-2">
-          <FaWallet /> <span>Connect Wallet</span>
-        </button>
-
-        <div className="mt-4 text-center">
-          <h2 className="text-white font-bold">
-            JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE
-          </h2>
-          <p className="text-sm mt-2 text-purple-200">
-            Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.
-          </p>
-          <div className="mt-4 flex flex-col items-center">
-            <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
-            <div className="flex mt-2">
-              <input
-                type="text"
-                className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
-                placeholder="USD"
-                value={usdInputValue}
-                onChange={(e) => onSetUSDInput(e.target.value)}
-              />
-              <input
-                type="text"
-                className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1] ml-1"
-                placeholder="$ BPNTHR"
-                value={bpnthrInputValue}
-                onChange={(e) => onSetBpnthr(e.target.value)}
-              />
+          <div className="mt-4 text-center">
+            <h2 className="text-white font-bold">
+              JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE
+            </h2>
+            <p className="text-sm mt-2 text-purple-200">
+              Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.
+            </p>
+            <div className="mt-4 flex flex-col items-center">
+              <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
+              <div className="flex mt-2">
+                <input
+                  type="text"
+                  className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
+                  placeholder="USD"
+                  value={usdInputValue}
+                  onChange={(e) => onSetUSDInput(e.target.value)}
+                />
+                <input
+                  type="text"
+                  className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1] ml-1"
+                  placeholder="$ BPNTHR"
+                  value={bpnthrInputValue}
+                  onChange={(e) => onSetBpnthr(e.target.value)}
+                />
+              </div>
+              <button
+                onClick={handleProceedToBuy}
+                className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                disabled={!currentUser}
+              >
+                Proceed to Buy
+              </button>
             </div>
+            <p className="text-white text-xs mt-2 font-bold">
+              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS XXX....XXX
+            </p>
+          </div>
+          <div>
             <button
-              onClick={handleProceedToBuy}
-              className="bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10"
+              className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10"
             >
-              Proceed to Buy
+              White Paper
+            </button>
+            <button
+              onClick={() => {
+                if (!currentUser) {
+                  toggleModal();
+                  return;
+                }
+                navigate('/my_points');
+              }}
+              className={`bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+              disabled={!currentUser}
+            >
+              See Points
             </button>
           </div>
-          <p className="text-white text-xs mt-2 font-bold">
-            <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS XXX....XXX
-          </p>
-        </div>
-        <div>
-          <button className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10">
-            White Paper
-          </button>
-          <button onClick={() => window.location.href = "/my_points"} className="bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
-            See Points
-          </button>
-        </div>
 
-        <div className="absolute inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
+          <div className="absolute inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
+        </div>
       </div>
-    </div>
-    
-  </>
+
+      <AuthModal isOpen={isModalOpen} toggleModal={toggleModal} />
+    </>
   );
 };
-
-
 
 const BuySection = () => {
 
@@ -482,6 +507,9 @@ const RoadMap = () => {
         </div>
       </div>
     </section>
+
+
+    
     </>
   );
 };
