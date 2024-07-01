@@ -270,7 +270,7 @@ const Header = () => {
               </>)}
             </div>
             <p className="text-white text-xs mt-2 font-bold">
-              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS <span className='text-yellow-500'>{currentUser.walletAddress}</span>
+              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
             </p>
           </div>
           <div>

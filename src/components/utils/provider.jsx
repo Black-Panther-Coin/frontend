@@ -31,7 +31,7 @@ function useLogin() {
 
   const getCurrentUser = async () => {
     const { data: response } = await httpClient.get("user/get_user");
-    setCurrentUser(response.user);
+    setCurrentUser(response?.user);
   };
 
   const onSavePointsLocally = (points) => {
