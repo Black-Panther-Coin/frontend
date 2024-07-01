@@ -54,7 +54,7 @@ const BuyToken = () => {
             My points: <span className="font-bold text-[#f97316]">{currentUser?.points}</span>
           </div>
           <div className="mb-6">
-            <div className="text-purple-950 font-bold mb-2">Steps to promote BPNTHR</div>
+            <div className="text-purple-950 font-bold mb-2">Ways to share BPNTHR</div>
             <hr className="border-t-2 border-purple-950 mt-2 mb-6" />
           </div>
           <div className="mb-1 flex items-center">
@@ -74,7 +74,7 @@ const BuyToken = () => {
           <div className="mb-1 flex items-center">
             <p className='text-red-500 text-2xl mr-2'>*</p>
             <p className="block text-gray-700 text-sm font-bold mb-2" htmlFor="network">
-              Join BPNTHR social handles to stay inform.
+              Join BPNTHR social handles to stay informed.
             </p>
           </div>
 

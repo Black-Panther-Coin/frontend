@@ -113,7 +113,7 @@ const Header = () => {
         name: `You are going to recieve ${PointsToSave} BPNTHR Points`,
         price: usdInputValue,
         addOns: [],
-        image: "https://blackpanthertkn.com/blackpanther.png",
+        image: null,
         sendSubscriptionEmails: true,
         productType: {
           Presale: {
@@ -145,7 +145,7 @@ const Header = () => {
                 description: 'Black panther token, meme coin with purpose',
                 chargingIntervalSeconds: 0,
                 price: usdInputValue,
-                imageUrl: 'https://blackpanthertkn.com/blackpanther.png',
+                imageUrl: 'string',
                 isMetered: false,
                 currency: 'USD',
                 sendSubscriptionEmails: true
@@ -271,7 +271,7 @@ const Header = () => {
               </>)}
             </div>
             <p className="text-white text-xs mt-2 font-bold">
-              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
+              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE TOKENS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
             </p>
           </div>
           <div>

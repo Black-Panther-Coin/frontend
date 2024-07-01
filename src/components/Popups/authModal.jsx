@@ -104,7 +104,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
           {!isLogin && (
             <div>
               <label htmlFor="walletAddress" className="block text-sm font-medium leading-6 text-gray-900">
-                Wallet Address
+                Wallet Address To Receive Tokens
               </label>
               <div className="mt-2">
                 <input
