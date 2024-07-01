@@ -105,7 +105,7 @@ const Header = () => {
       url: 'https://api.radom.com/product/create',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='
+        Authorization: import.meta.env.VITE_TOKEN_KEY
       },
       data: {
         currency: 'USD',
@@ -134,7 +134,7 @@ const Header = () => {
         url: 'https://api.radom.com/checkout_session',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'eyJhZGRyZXNzIjpudWxsLCJvcmdhbml6YXRpb25faWQiOiJmNzhlMjMxYS04OTVmLTRiNDMtYjVhNy1iYzA5OWNmODAwNzMiLCJzZXNzaW9uX2lkIjoiN2I2NTIxMjEtYjZlYi00MjVkLTllYzMtOWQ5NjAzZGY5OTk2IiwiZXhwaXJlZF9hdCI6IjIwMjUtMDYtMjhUMTE6MDk6NDYuMDI2NzkzNDQzWiIsImlzX2FwaV90b2tlbiI6dHJ1ZX0='
+          Authorization: import.meta.env.VITE_TOKEN_KEY
         },
         data: {
           lineItems: [
