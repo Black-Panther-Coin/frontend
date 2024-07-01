@@ -275,9 +275,10 @@ const Header = () => {
           </div>
           <div>
             <button
+              onClick={() => window.open("bpc.clawpaper.v1.1.pdf", "_blank")}
               className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10"
             >
-              White Paper
+              Claw Paper
             </button>
             <button
               onClick={() => {
