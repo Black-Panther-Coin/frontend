@@ -10,7 +10,7 @@ export const [LoginProvider, useAuthentication] = constate(
 function useLogin() {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token_key_Bpnthr") !== null);
   const [currentUser, setCurrentUser] = useState("");
-  const [PointsToSave, setPointsToSave] = useState(0);
+  const [PointsToSave, setPointsToSave] = useState(localStorage.getItem("Bpnthr_pt_sv"));
 
   useEffect(() => {
     setIsAuthenticated(localStorage.getItem("token_key_Bpnthr") !== null);
@@ -30,9 +30,13 @@ function useLogin() {
   }, [isAuthenticated]);
 
   const getCurrentUser = async () => {
-    const { data: response } = await httpClient.get("http://localhost:9080/api/user/get_user");
+    const { data: response } = await httpClient.get("user/get_user");
     setCurrentUser(response.user);
   };
+
+  const onSavePointsLocally = (points) => {
+    localStorage.setItem("Bpnthr_pt_sv", points);
+  }
 
   const ensureLogin = useCallback(async () => {
     if (localStorage.getItem("token_key_Bpnthr") === null) {
@@ -46,6 +50,7 @@ function useLogin() {
   const clearLocalStorage = () => {
     localStorage.removeItem("token_key_Bpnthr");
     localStorage.removeItem("expiresIn");
+    localStorage.removeItem("Bpnthr_pt_sv");
   };
 
   const onLogout = () => {
@@ -64,7 +69,8 @@ function useLogin() {
       clearLocalStorage,
       onLogout,
       PointsToSave,
-      setPointsToSave
+      setPointsToSave,
+      onSavePointsLocally
     }),
     [
       isAuthenticated,
@@ -76,7 +82,8 @@ function useLogin() {
       clearLocalStorage,
       onLogout,
       PointsToSave,
-      setPointsToSave
+      setPointsToSave,
+      onSavePointsLocally
     ]
   );
 

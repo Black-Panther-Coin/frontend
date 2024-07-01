@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import { faDollarSign, faCoins } from '@fortawesome/free-solid-svg-icons';
 import pantherHoldCoinImage from "../../assets/images/img2.png"
 import { useAuthentication } from '../utils/provider';
+import httpClient from '../httpClient/httpClient';
 
 const BuyToken = () => {
-  const { currentUser } = useAuthentication()
+  const { currentUser, ensureLogin, PointsToSave } = useAuthentication()
+
+  useEffect(() => {
+    const checkingForLogin = async () => {
+      await ensureLogin()
+    }
+
+    checkingForLogin()
+
+    const savePointsToDbAsunc = async () => {
+      let info = {
+        points: PointsToSave
+      }
+      const response = await httpClient.put("user/update_points", info)
+      if(response?.status === 201) {
+        localStorage.removeItem("Bpnthr_pt_sv");
+      } else {
+        console.log("Something went wrong, contact Administration")
+      }
+    }
+
+    if(currentUser) {
+      if(PointsToSave > 0) {
+        savePointsToDbAsunc()
+      }
+    }
+  }, [currentUser?._id])
+
+
 
    return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#f5f5dc]">

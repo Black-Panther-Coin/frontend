@@ -16,7 +16,7 @@ import pantherLogo from "../../assets/panter.png";
 import Tokenomics from '../../components/Tokenmics/tokenmicks';
 import "./homePage.css";
 import { motion } from 'framer-motion'
-import { FaWallet } from 'react-icons/fa';
+import { FaLock, FaSpinner, FaWallet } from 'react-icons/fa';
 import {FaCopy, FaRocket, FaCoins, FaHandHoldingHeart, FaCogs, FaExpand, FaBook } from 'react-icons/fa';
 import { FaLightbulb, } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
@@ -59,19 +59,22 @@ const Header = () => {
   const [usdInputValue, setUsdInputValue] = useState('');
   const [bpnthrInputValue, setBpnthrInputValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
-  const { currentUser, setPointsToSave } = useAuthentication();
+  const { currentUser, setPointsToSave, PointsToSave, onSavePointsLocally } = useAuthentication();
 
   const onSetUSDInput = async (val) => {
     setUsdInputValue(val);
     const bnthr = await calculateBNTHRToGet(val);
     setBpnthrInputValue(bnthr);
     setPointsToSave(bnthr);
+    onSavePointsLocally(bnthr);
   };
 
   const onSetBpnthr = async (val) => {
     setBpnthrInputValue(val);
     setPointsToSave(val);
+    onSavePointsLocally(val);
     const usd = await calculateUSDToPay(val);
     setUsdInputValue(usd);
   };
@@ -95,6 +98,8 @@ const Header = () => {
       return;
     }
 
+    setIsLoading(true)
+
     const options = {
       method: 'POST',
       url: 'https://api.radom.com/product/create',
@@ -105,7 +110,7 @@ const Header = () => {
       data: {
         currency: 'USD',
         description: 'Black panther token, meme coin with purpose',
-        name: 'PNTHR',
+        name: `You are going to recieve ${PointsToSave} BPNTHR Points`,
         price: usdInputValue,
         addOns: [],
         image: null,
@@ -156,8 +161,8 @@ const Header = () => {
               { network: 'SolanaTestnet', token: null, discountPercentOff: 0 }
             ] }
           },
-          successUrl: 'http://localhost:5173/my_points',
-          cancelUrl: 'http://localhost:5173',
+          successUrl: import.meta.env.VITE_SUCCESS_URL,
+          cancelUrl: import.meta.env.VITE_CANCEL_URL,
           metadata: [{ key: 'string', value: 'string' }],
           expiresAt: getFutureTimestamp(1), // Set expiration time to 1 minute from now
           customizations: {
@@ -172,6 +177,7 @@ const Header = () => {
 
       axios.request(options).then(function (response) {
         console.log(response.data);
+        setIsLoading(false)
         window.location.href = response.data.checkoutSessionUrl;
       }).catch(function (error) {
         console.error(error);
@@ -246,16 +252,25 @@ const Header = () => {
                   onChange={(e) => onSetBpnthr(e.target.value)}
                 />
               </div>
-              <button
-                onClick={handleProceedToBuy}
-                className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
-                disabled={!currentUser}
-              >
-                Proceed to Buy
-              </button>
+              {isLoading ? (<>
+                <button
+                  className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                  disabled={!currentUser}
+                >
+                  <FaSpinner />
+                </button>
+              </>) : (<>
+                <button
+                  onClick={handleProceedToBuy}
+                  className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                  disabled={!currentUser}
+                >
+                  Proceed to Buy
+                </button>
+              </>)}
             </div>
             <p className="text-white text-xs mt-2 font-bold">
-              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS XXX....XXX
+              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE POINTS IS <span className='text-yellow-500'>{currentUser.walletAddress}</span>
             </p>
           </div>
           <div>
