@@ -64,7 +64,7 @@ function Tokenomics() {
 
   return (
     <div className="bg-yellow-500 py-12">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-5">
         <div className="text-center lg:text-left mb-8 lg:mb-0 lg:w-1/2">
           <h2 className="text-4xl font-bold text-purple-950 mb-4">BPNTHR TOKENOMICS</h2>
           <p className="text-purple-950 text-lg">Understanding the distribution of BPNTHR tokens</p>
