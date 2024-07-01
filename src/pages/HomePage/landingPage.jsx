@@ -113,7 +113,7 @@ const Header = () => {
         name: `You are going to recieve ${PointsToSave} BPNTHR Points`,
         price: usdInputValue,
         addOns: [],
-        image: null,
+        image: "https://blackpanthertkn.com/blackpanther.png",
         sendSubscriptionEmails: true,
         productType: {
           Presale: {
@@ -145,7 +145,7 @@ const Header = () => {
                 description: 'Black panther token, meme coin with purpose',
                 chargingIntervalSeconds: 0,
                 price: usdInputValue,
-                imageUrl: 'string',
+                imageUrl: 'https://blackpanthertkn.com/blackpanther.png',
                 isMetered: false,
                 currency: 'USD',
                 sendSubscriptionEmails: true
