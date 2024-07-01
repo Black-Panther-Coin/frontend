@@ -7,7 +7,7 @@ import { useAuthentication } from '../utils/provider';
 import httpClient from '../httpClient/httpClient';
 
 const BuyToken = () => {
-  const { currentUser, ensureLogin, PointsToSave } = useAuthentication()
+  const { currentUser, ensureLogin, PointsToSave, getCurrentUser } = useAuthentication()
 
   useEffect(() => {
     const checkingForLogin = async () => {
@@ -23,6 +23,7 @@ const BuyToken = () => {
       const response = await httpClient.put("user/update_points", info)
       if(response?.status === 201) {
         localStorage.removeItem("Bpnthr_pt_sv");
+        await getCurrentUser()
       } else {
         console.log("Something went wrong, contact Administration")
       }
