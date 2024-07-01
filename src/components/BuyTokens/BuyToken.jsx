@@ -11,15 +11,15 @@ const BuyToken = () => {
    return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#f5f5dc]">
       <div className="w-full flex justify-center items-center bg-[#f97316] text-white py-2">
-        <span>
+        <span className='mx-2 text-center'>
           <span className="font-bold">Congratulations! Be ready to claim your tokens when we launch.</span>
         </span>
       </div>
-      <div className="flex w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden mt-4">
-        <div className="w-1/2 bg-[#f5f5dc] p-8 flex flex-col items-center">
+      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden mt-4">
+        <div className="w-[100%] md:w-1/2 bg-[#f5f5dc] p-8 flex flex-col items-center">
           <img src={pantherHoldCoinImage} />
         </div>
-        <div className="w-1/2 p-8 bg-white">
+        <div className="w-[100%] md:w-1/2 p-8 bg-white">
           <div className="text-right text-sm text-gray-500 mb-6">
             My points: <span className="font-bold text-[#f97316]">{currentUser?.points}</span>
           </div>
