@@ -181,9 +181,13 @@ const Header = () => {
         setIsLoading(false)
         window.location.href = response.data.checkoutSessionUrl;
       }).catch(function (error) {
+        setPointsToSave(0)
+        localStorage.removeItem("Bpnthr_pt_sv");
         console.error(error);
       });
     }).catch(function (error) {
+      setPointsToSave(0)
+      localStorage.removeItem("Bpnthr_pt_sv");
       console.error(error);
     });
   };
