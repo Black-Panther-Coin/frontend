@@ -13,7 +13,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
     password: '',
     walletAddress: '',
   });
-  const { currentUser, setIsAuthenticated, onLogout } = useAuthentication();
+  const { currentUser, setIsAuthenticated, onLogout, getCurrentUser } = useAuthentication();
 
   const handleFormSwitch = () => setIsLogin(!isLogin);
 
@@ -30,6 +30,7 @@ const AuthModal = ({ isOpen, toggleModal }) => {
           localStorage.setItem("expiresIn", response.data.expiresIn);
           toast.success('Login successful! Redirecting to homepage...');
           setIsAuthenticated(true);
+          getCurrentUser()
           toggleModal(); // Close modal on successful login
         }
       } else {
