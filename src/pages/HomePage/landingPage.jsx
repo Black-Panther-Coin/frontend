@@ -28,6 +28,7 @@ import axios from "axios";
 import { useAuthentication } from '../../components/utils/provider';
 import AuthModal from '../../components/Popups/authModal'
 import CountDown from '../../components/CountDown/CountDown';
+import httpClient from '../../components/httpClient/httpClient';
 
 
 
@@ -61,8 +62,24 @@ const Header = () => {
   const [bpnthrInputValue, setBpnthrInputValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
+  const [targetDate, setTargetDate] = useState()
+  const [price, setPrice] = useState()
 
   const { currentUser, setPointsToSave, PointsToSave, onSavePointsLocally } = useAuthentication();
+
+  useEffect(() => {
+    getData()
+  },[])
+
+  const getData = async () => {
+    setIsLoading(true)
+    const response = await httpClient.get("countDown/get_countdown")
+    setTargetDate(response.data.endTime)
+    const result = await httpClient.get("price/get_price")
+    setPrice(result.data.currentPrice)
+    setIsLoading(false)
+  }
+
 
   const onSetUSDInput = async (val) => {
     setUsdInputValue(val);
@@ -81,15 +98,11 @@ const Header = () => {
   };
 
   const calculateBNTHRToGet = async (val) => {
-    const target = 1000000;
-    const totalSupply = 10000000000;
-    return val / (target / totalSupply);
+    return val / (price);
   };
 
   const calculateUSDToPay = async (val) => {
-    const target = 1000000;
-    const totalSupply = 10000000000;
-    return val * (target / totalSupply);
+    return val * (price);
   };
 
   const handleProceedToBuy = () => {
@@ -156,7 +169,7 @@ const Header = () => {
           currency: 'USD',
           gateway: {
             managed: { methods: [
-              // { network: 'SepoliaTestnet', token: null, discountPercentOff: 0 }, // show this for testing
+              { network: 'SepoliaTestnet', token: null, discountPercentOff: 0 }, // show this for testing
               { network: 'BNB', token: null, discountPercentOff: 0 },
               { network: 'BNB', token: "0xe9e7cea3dedca5984780bafc599bd69add087d56", discountPercentOff: 0 },
               { network: 'BNB', token: "0x55d398326f99059ff775485246999027b3197955", discountPercentOff: 0 },
@@ -200,7 +213,6 @@ const Header = () => {
   };
 
   const toggleModal = () => {
-    console.log("Modal toggled");
     setIsModalOpen(!isModalOpen);
   };
 
@@ -215,7 +227,7 @@ const Header = () => {
         <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
           A MEME COIN WITH PURPOSE!
         </p>
-      <CountDown duration={5} />
+      <CountDown targetDate={targetDate} price={price} onGetNewValues={() => getData()} />
 
       </div>
       <div className="w-full flex justify-center">
