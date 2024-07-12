@@ -410,11 +410,11 @@ const PantherSection = () => (
       <p className="text-base text-white my-4 animate-slideIn">
       it’s a beacon of hope and empowerment in the digital realm.This isn’t just another meme token—it’s a potent symbol of change and a harbinger of a new era in finance across the African continent.
       </p>
-      <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
+      {/* <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
         BUY TOKENS
-      </button>
-      <p className="text-sm text-white mt-4 animate-slideIn">1 BPNTHR  = $0.0001 USD</p>
-      <p className="text-sm text-white animate-slideIn">Expected Price at launch $0.01!</p>
+      </button> */}
+      {/* <p className="text-sm text-white mt-4 animate-slideIn">1 BPNTHR  = $0.0001 USD</p> */}
+      <p className="font-bold text-2xl text-yellow-500  animate-slideIn">Expected Price at launch $0.01!</p>
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
