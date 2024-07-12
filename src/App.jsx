@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { LoginProvider } from "./components/utils/provider";
 import PaymentFailed from "./components/BuyTokens/PaymentFailed";
+import CountDown from "./components/CountDown/CountDown";
 
 
 //const projectId = "45ff7348e614a721653a8d6d577b43da";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/my_points" element={<BuyToken />} />
             <Route path="/failed_payment" element={<PaymentFailed />} />
+            <Route path="/count" element={<CountDown />} />
           </Routes>
         </div>
       </Router>

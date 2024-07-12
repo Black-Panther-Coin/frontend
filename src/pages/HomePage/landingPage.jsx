@@ -9,7 +9,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import pantherImage2 from "../../assets/images/new2.png";
-import pantherImage from '../../assets/images/new.png';
+import pantherImage from '../../assets/images/langing1.png';
 import buyImage from '../../assets/images/buy.png';
 import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
@@ -27,6 +27,7 @@ import { toast } from 'react-toastify'
 import axios from "axios";
 import { useAuthentication } from '../../components/utils/provider';
 import AuthModal from '../../components/Popups/authModal'
+import CountDown from '../../components/CountDown/CountDown';
 
 
 
@@ -155,7 +156,7 @@ const Header = () => {
           currency: 'USD',
           gateway: {
             managed: { methods: [
-              { network: 'SepoliaTestnet', token: null, discountPercentOff: 0 }, // show this for testing
+              // { network: 'SepoliaTestnet', token: null, discountPercentOff: 0 }, // show this for testing
               { network: 'BNB', token: null, discountPercentOff: 0 },
               { network: 'BNB', token: "0xe9e7cea3dedca5984780bafc599bd69add087d56", discountPercentOff: 0 },
               { network: 'BNB', token: "0x55d398326f99059ff775485246999027b3197955", discountPercentOff: 0 },
@@ -206,24 +207,26 @@ const Header = () => {
   return (
     <>
       <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
-        <div className="flex flex-col justify-center items-center h-full text-center mt-8">
-          <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
-            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
-              Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
-            </h1>
-            <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
-              A MEME COIN WITH PURPOSE!
-            </p>
-          </div>
-          <div className="w-full flex justify-center">
-            <img
-              src="/src/assets/images/langing1.png"
-              alt="Black Panther Token"
-              className="w-full max-w-[90%] h-auto"
-            />
-          </div>
-        </div>
+      <div className="flex flex-col justify-center items-center h-full text-center mt-8">
+      <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
+          Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
+        </h1>
+        <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
+          A MEME COIN WITH PURPOSE!
+        </p>
+      <CountDown duration={5} />
 
+      </div>
+      <div className="w-full flex justify-center">
+        <img
+          src={pantherImage}
+          alt="Black Panther Token"
+          className="w-full max-w-[90%] h-auto"
+        />
+
+      </div>
+    </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
           <button
             onClick={toggleModal}
