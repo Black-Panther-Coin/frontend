@@ -9,7 +9,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import pantherImage2 from "../../assets/images/new2.png";
-import pantherImage from '../../assets/images/langing1.png';
+import pantherImage from '../../assets/images/img2.png';
 import buyImage from '../../assets/images/buy.png';
 import pantherIcon from '../../assets/images/image.png';
 import pantherLogo from "../../assets/panter.png";
@@ -218,104 +218,108 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative min-h-[70vh] overflow-hidden bg-[#FFFAE1]">
-      <div className="flex flex-col justify-center items-center h-full text-center mt-8">
-      <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
-          Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
-        </h1>
-        <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
-          A MEME COIN WITH PURPOSE!
-        </p>
-      <CountDown targetDate={targetDate} price={price} onGetNewValues={() => getData()} />
-
-      </div>
-      <div className="w-full flex justify-center">
-        <img
-          src={pantherImage}
-          alt="Black Panther Token"
-          className="w-full max-w-[90%] h-auto"
-        />
-
-      </div>
-    </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 lg:left-auto lg:right-24 lg:translate-x-0 bg-purple-950 p-6 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
-          <button
-            onClick={toggleModal}
-            className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none relative z-10 -mt-8 flex items-center space-x-2"
-          >
-            <FaWallet /> <span>{currentUser ? 'Logged In' : 'Login / Sign up'}</span>
-          </button>
-
-          <div className="mt-4 text-center">
-            <h2 className="text-white font-bold">
-              JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE
-            </h2>
-            <p className="text-sm mt-2 text-purple-200">
-              Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.
+      <div className="bg-[#FFFAE1]">
+        <div className="flex flex-col justify-center items-center h-full text-center mt-8">
+          <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
+              Black Panther Token (<span className="text-yellow-500">BPNTHR</span>) Pre-Sale is Live
+            </h1>
+            <p className="mt-2 sm:mt-4 text-base text-purple-950 font-semibold">
+              A MEME COIN WITH PURPOSE!
             </p>
-            <div className="mt-4 flex flex-col items-center">
-              <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
-              <div className="flex mt-2">
-                <input
-                  type="text"
-                  className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
-                  placeholder="USD"
-                  value={usdInputValue}
-                  onChange={(e) => onSetUSDInput(e.target.value)}
-                />
-                <input
-                  type="text"
-                  className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1] ml-1"
-                  placeholder="$ BPNTHR"
-                  value={bpnthrInputValue}
-                  onChange={(e) => onSetBpnthr(e.target.value)}
-                />
-              </div>
-              {isLoading ? (<>
-                <button
-                  className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
-                  disabled={!currentUser}
-                >
-                  <FaSpinner />
-                </button>
-              </>) : (<>
-                <button
-                  onClick={handleProceedToBuy}
-                  className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
-                  disabled={!currentUser}
-                >
-                  Proceed to Buy
-                </button>
-              </>)}
+            <CountDown targetDate={targetDate} price={price} onGetNewValues={() => getData()} />
+          </div>
+          
+          <div className='flex flex-col md:flex-row'>
+            <div className="w-full flex justify-center">
+              <img
+                src={pantherImage}
+                alt="Black Panther Token"
+                className="mx-auto w-full max-w-md h-auto"
+              />
+
             </div>
-            <p className="text-white text-xs mt-2 font-bold">
-              <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE TOKENS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
-            </p>
-          </div>
-          <div>
-            <button
-              onClick={() => window.open("bpc.clawpaper.v1.1.pdf", "_blank")}
-              className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10"
-            >
-              Claw Paper
-            </button>
-            <button
-              onClick={() => {
-                if (!currentUser) {
-                  toggleModal();
-                  return;
-                }
-                navigate('/my_points');
-              }}
-              className={`bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
-              disabled={!currentUser}
-            >
-              See Points
-            </button>
-          </div>
 
-          <div className="absolute inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
+            <div className="bg-purple-950 p-6 mb-8 rounded-lg shadow-lg w-full max-w-md mx-auto flex flex-col items-center justify-center">
+              <button
+                onClick={toggleModal}
+                className="bg-yellow-500 text-black py-2 px-4 font-bold rounded hover:bg-yellow-600 focus:outline-none flex items-center space-x-2"
+              >
+                <FaWallet /> <span>{currentUser ? 'Logged In' : 'Login / Sign up'}</span>
+              </button>
+
+              <div className="mt-4 text-center">
+                <h2 className="text-white font-bold">
+                  JOIN THE BLACK PANTHER <span className="text-yellow-500">BPNTHR</span> PRE-SALE
+                </h2>
+                <p className="text-sm mt-2 text-purple-200">
+                  Please go to your Wallet Address and CUSTOM IMPORT the BPNTHR ticker by copying the Contract Address inside your wallet in order to view the number of tokens you have bought.
+                </p>
+                <div className="mt-4 flex flex-col items-center">
+                  <label className="text-yellow-500 font-bold">How many BPNTHR would you like to buy?</label>
+                  <div className="flex mt-2">
+                    <input
+                      type="text"
+                      className="border text-black font-bold rounded-l px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1]"
+                      placeholder="USD"
+                      value={usdInputValue}
+                      onChange={(e) => onSetUSDInput(e.target.value)}
+                    />
+                    <input
+                      type="text"
+                      className="border text-black font-bold rounded-r px-4 py-2 w-full md:w-40 h-12 bg-[#FFFAE1] ml-1"
+                      placeholder="$ BPNTHR"
+                      value={bpnthrInputValue}
+                      onChange={(e) => onSetBpnthr(e.target.value)}
+                    />
+                  </div>
+                  {isLoading ? (<>
+                    <button
+                      className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                      disabled={!currentUser}
+                    >
+                      <FaSpinner />
+                    </button>
+                  </>) : (<>
+                    <button
+                      onClick={handleProceedToBuy}
+                      className={`bg-yellow-500 text-black py-2 px-4 font-bold rounded mt-6 hover:bg-yellow-600 focus:outline-none relative z-10 ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                      disabled={!currentUser}
+                    >
+                      Proceed to Buy
+                    </button>
+                  </>)}
+                </div>
+                <p className="text-white text-xs mt-2 font-bold">
+                  <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE TOKENS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={() => window.open("bpc.clawpaper.v1.1.pdf", "_blank")}
+                  className="bg-[#FFFAE1] text-black py-2 px-4 font-bold rounded mt-6 hover:bg-purple-800 focus:outline-none relative z-10"
+                >
+                  Claw Paper
+                </button>
+                <button
+                  onClick={() => {
+                    if (!currentUser) {
+                      toggleModal();
+                      return;
+                    }
+                    navigate('/my_points');
+                  }}
+                  className={`bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
+                  disabled={!currentUser}
+                >
+                  See Points
+                </button>
+              </div>
+
+              <div className="inset-0 bg-transparent border-2 border-purple-800 rounded-lg pointer-events-none"></div>
+            </div>
+          </div>
+          
         </div>
       </div>
 
@@ -325,9 +329,6 @@ const Header = () => {
 };
 
 const BuySection = () => {
-
- 
-  
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {

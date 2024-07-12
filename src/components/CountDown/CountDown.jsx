@@ -55,7 +55,7 @@ const CountdownTimer = ({targetDate, price, onGetNewValues}) => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-6 p-4 bg-purple-900 rounded-lg shadow-lg">
+    <div className="flex mx-6 mt-6 flex-col items-center justify-center space-y-6 p-4 bg-purple-900 rounded-lg shadow-lg">
       <div className="flex items-center space-x-4 text-2xl text-yellow-500">
         <FiClock className="text-3xl" />
         <span>Price increase in:</span>
