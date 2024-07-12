@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaTimes } from 'react-icons/fa';
+import { FaSpinner, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuthentication } from '../utils/provider';
@@ -14,6 +14,9 @@ const AuthModal = ({ isOpen, toggleModal }) => {
     walletAddress: '',
   });
   const { currentUser, setIsAuthenticated, onLogout, getCurrentUser } = useAuthentication();
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [confirmPassError, setConfirmPassError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleFormSwitch = () => setIsLogin(!isLogin);
 
@@ -22,25 +25,35 @@ const AuthModal = ({ isOpen, toggleModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       let response;
       if (isLogin) {
         response = await httpClient.post("user/signin", formData);
         if (response.status === 200) {
           localStorage.setItem("token_key_Bpnthr", response.data.token);
           localStorage.setItem("expiresIn", response.data.expiresIn);
-          toast.success('Login successful! Redirecting to homepage...');
+          toast.success(response.data.message);
           setIsAuthenticated(true);
           getCurrentUser()
+          setIsLoading(false)
           toggleModal(); // Close modal on successful login
+        } else {
+          toast.error(response.data.message)
+          setIsLoading(false)
         }
       } else {
         response = await httpClient.post("user/signup", formData)
         if (response.status === 201) {
-          toast.success('Signup successful! Please login to continue.');
+          setIsLoading(false)
+          toast.success(response.data.message);
           setIsLogin(true); // Switch to login form
+        } else {
+          toast.error(response.data.message)
+          setIsLoading(false)
         }
       }
     } catch (error) {
+      setIsLoading(false)
       console.error('Authentication error:', error);
       if (error.response) {
         toast.error(error.response.data.message || 'Authentication error');
@@ -53,6 +66,15 @@ const AuthModal = ({ isOpen, toggleModal }) => {
   };
 
   if (!isOpen) return null;
+
+  const onSetConfirmPassword = (val) => {
+    setConfirmPassword(val)
+    if(val !== formData.password) {
+      setConfirmPassError(true)
+    } else {
+      setConfirmPassError(false)
+    }
+  }
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -103,31 +125,67 @@ const AuthModal = ({ isOpen, toggleModal }) => {
             </div>
           </div>
           {!isLogin && (
-            <div>
-              <label htmlFor="walletAddress" className="block text-sm font-medium leading-6 text-gray-900">
-                Wallet Address To Receive Tokens
-              </label>
-              <div className="mt-2">
-                <input
-                  id="walletAddress"
-                  name="walletAddress"
-                  type="text"
-                  autoComplete="walletAddress"
-                  required
-                  value={formData.walletAddress}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 py-2 text-black bg-[#FFFAE1] p-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+            <>
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium leading-6 text-gray-900">
+                  Confirm Password
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => onSetConfirmPassword(e.target.value)}
+                    className="block w-full rounded-md border-0 py-2 text-black bg-[#FFFAE1] p-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
               </div>
-            </div>
+              {confirmPassError && (<p className='text-red-500'>password does not match</p>)}
+              <div>
+                <label htmlFor="walletAddress" className="block text-sm font-medium leading-6 text-gray-900">
+                  Wallet Address To Receive Tokens
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="walletAddress"
+                    name="walletAddress"
+                    type="text"
+                    autoComplete="walletAddress"
+                    required
+                    value={formData.walletAddress}
+                    onChange={handleChange}
+                    className="block w-full rounded-md border-0 py-2 text-black bg-[#FFFAE1] p-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+            </>
           )}
           <div>
-            <button
-              type="submit"
-              className="flex justify-center w-full rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-            >
-              Submit
-            </button>
+            {confirmPassError ? (<>
+              <button
+                disabled
+                className="flex justify-center w-full rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold leading-6 text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+              >
+                Submit
+              </button>
+            </>) : (<>
+              {isLoading ? (<>
+                <button
+                  className="flex justify-center w-full rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+                >
+                  <FaSpinner />
+                </button>
+              </>) : (<>
+                <button
+                  type="submit"
+                  className="flex justify-center w-full rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+                >
+                  Submit
+                </button>
+              </>)}
+            </>)}
           </div>
         </form>
         <p className="mt-4 text-center text-sm text-gray-500">
