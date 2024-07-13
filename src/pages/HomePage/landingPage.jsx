@@ -82,6 +82,8 @@ const Header = () => {
 
 
   const onSetUSDInput = async (val) => {
+    setPointsToSave(0);
+    onSavePointsLocally(0);
     setUsdInputValue(val);
     const bnthr = await calculateBNTHRToGet(val);
     setBpnthrInputValue(bnthr);
@@ -90,6 +92,8 @@ const Header = () => {
   };
 
   const onSetBpnthr = async (val) => {
+    setPointsToSave(0);
+    onSavePointsLocally(0);
     setBpnthrInputValue(val);
     setPointsToSave(val);
     onSavePointsLocally(val);
@@ -310,6 +314,8 @@ const Header = () => {
                       toggleModal();
                       return;
                     }
+                    setPointsToSave(0);
+                    onSavePointsLocally(0);
                     navigate('/my_points');
                   }}
                   className={`bg-orange-500 ml-2 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn ${!currentUser && 'opacity-50 cursor-not-allowed'}`}
