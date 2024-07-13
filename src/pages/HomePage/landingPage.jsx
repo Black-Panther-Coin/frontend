@@ -378,17 +378,18 @@ const WhySection = () => (
         The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
         </p>
         <ul className="mt-8 space-y-4 text-white text-left">
+        <h2 className="font-bold text-yellow-500 mb-4">African Web3 Project:</h2>
           <li className="flex items-center space-x-2">
             <FaRocket className="text-yellow-500" />
-            <span>Support for African Development Projects</span>
+            <span>Transaction Token</span>
           </li>
           <li className="flex items-center space-x-2">
             <FaCogs className="text-yellow-500" />
-            <span>Technological Advancements in Blockchain</span>
+            <span>Stablecoin Creation</span>
           </li>
           <li className="flex items-center space-x-2">
             <FaLightbulb className="text-yellow-500" />
-            <span>Empowering Young Entrepreneurs</span>
+            <span>Web3 Texting & Money Transfer App</span>
           </li>
         </ul>
       </div>
@@ -411,7 +412,7 @@ const PantherSection = () => (
       The Black Panther Token (BPNTHR) transcends the typical crypto narrative;  
       </h3>
       <p className="text-base text-white my-4 animate-slideIn">
-      it’s a beacon of hope and empowerment in the digital realm.This isn’t just another meme token—it’s a potent symbol of change and a harbinger of a new era in finance across the African continent.
+      it’s a practical tool in the digital realm offering real world utility. This isn’t just another meme token—it’s a potent symbol of change, a harbinger of a new era in finance across the African continent, presenting a number of Web3 tools & products.
       </p>
       {/* <button className="bg-orange-500 text-black py-2 px-4 font-bold rounded mt-4 hover:bg-purple-800 focus:outline-none animate-slideIn">
         BUY TOKENS
@@ -421,8 +422,8 @@ const PantherSection = () => (
     </div>
     <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
-        <h4 className="text-xl font-bold text-white">Charity Funds</h4>
-        <p className="text-white">funds health education, awareness, treatment, and research for diseases affecting African people globally, and supports education in crypto, Web3/blockchain
+        <h4 className="text-xl font-bold text-white">Charity Wallet</h4>
+        <p className="text-white">Funds health education, awareness, treatment, & research for diseases affecting African people globally, such as sickle cell anemia & supports education in Web3/blockchain & crypto financial literacy.
         .</p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
@@ -432,11 +433,11 @@ const PantherSection = () => (
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
         <h4 className="text-xl font-bold text-white">Stable Coin</h4>
-        <p className="text-white">akin to Tether, (USDT) BUSD, or USDC offering a stable coin alternative that is authentically African. </p>
+        <p className="text-white">Akin to Tether, (USDT) BUSD, or USDC offering a stable coin alternative that is authentically African. </p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
         <h4 className="text-xl font-bold text-white">Web3 Texting & Money Transfer App</h4>
-        <p className="text-white">he texting app that uses phone numbers will be developed, doubling as a Web3 money transfer application
+        <p className="text-white">A texting app that uses phone numbers will be developed, doubling as a Web3 money transfer application.
         </p>
       </div>
       <div className="bg-purple-700 p-4 rounded-lg text-center transform transition-transform duration-200 hover:scale-105 animate-slideIn">
