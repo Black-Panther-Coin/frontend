@@ -176,8 +176,10 @@ const Header = () => {
               //{ network: 'SepoliaTestnet', token: null, discountPercentOff: 0 }, // show this for testing
               { network: 'BNB', token: null, discountPercentOff: 0 },
               { network: 'Ethereum', token: null, discountPercentOff: 0 },
+              { network: 'Base', token: null, discountPercentOff: 0 },
               { network: 'BNB', token: "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d", discountPercentOff: 0 },
               { network: 'Ethereum', token: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", discountPercentOff: 0 },
+              { network: 'Base', token: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913", discountPercentOff: 0 },
               { network: 'BNB', token: "0x55d398326f99059ff775485246999027b3197955", discountPercentOff: 0 },
               { network: 'Ethereum', token: "0xdAC17F958D2ee523a2206206994597C13D831ec7", discountPercentOff: 0 },
               { network: 'BNB', token: "0xe9e7cea3dedca5984780bafc599bd69add087d56", discountPercentOff: 0 }
