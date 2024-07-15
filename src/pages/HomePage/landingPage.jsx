@@ -300,7 +300,11 @@ const Header = () => {
                   </>)}
                 </div>
                 <p className="text-white text-xs mt-2 font-bold">
-                  <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE TOKENS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
+                  {currentUser?.walletAddress && (
+                    <>
+                      <span className="text-yellow-500">NB:</span> ADDRESS TO RECEIVE TOKENS IS <span className='text-yellow-500'>{currentUser?.walletAddress}</span>
+                    </>
+                  )}
                 </p>
               </div>
               <div>
@@ -386,7 +390,7 @@ const WhySection = () => (
         The Black Panther Token is not just a digital asset; it represents a movement towards a more inclusive and financially empowered Africa. With its strategic roadmap and the backing of tangible assets, BPNTHR is poised to be a significant player in the crypto space.
         </p>
         <ul className="mt-8 space-y-4 text-white text-left">
-        <h2 className="font-bold text-yellow-500 mb-4">African Web3 Project:</h2>
+        <h2 className="font-bold text-yellow-500 mb-4">Black Panther will present African Web3 Projects including:</h2>
           <li className="flex items-center space-x-2">
             <FaRocket className="text-yellow-500" />
             <span>Transaction Token</span>
