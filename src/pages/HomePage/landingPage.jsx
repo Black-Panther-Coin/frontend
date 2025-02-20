@@ -30,6 +30,9 @@ import AuthModal from '../../components/Popups/authModal'
 import CountDown from '../../components/CountDown/CountDown';
 import httpClient from '../../components/httpClient/httpClient';
 
+import HeaderNew from '../../components/Header/HeaderNew';
+
+
 
 
 const contractAddress = "0x12a55f6aBDfE13a44eF8b29a24964e20D21E0fA5";
@@ -228,6 +231,9 @@ const Header = () => {
   return (
     <>
       <div className="bg-[#FFFAE1]">
+
+        <HeaderNew />
+
         <div className="flex flex-col justify-center items-center h-full text-center mt-8">
           <div className="lg:w-1/2 lg:mx-auto mb-4 lg:mb-8">
             <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-950 px-4">
