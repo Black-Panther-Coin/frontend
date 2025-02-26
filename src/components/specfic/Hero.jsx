@@ -1,9 +1,9 @@
 import React from 'react';
-import { MobileInHand } from '../../assets';
+import { CenterImage, CenterMobile, MobileInHand } from '../../assets';
 
 const Hero = () => {
     return (
-        <div className='w-full px-6 md:px-10'>
+        <div className='w-full px-6 md:px-5'>
             <div className=" flex flex-col md:flex-row items-center justify-between  w-full">
                 <div className="text-left max-w-xl  md:text-left">
                     <h1 className="leading-tight text-4xl md:text-7xl lg:text-8xl">
@@ -19,9 +19,13 @@ const Hero = () => {
                     </p>
                     <button type="button" className='border border-[#E9B308] text-[#E9B308] font-semibold shadow-2xl py-2 px-3 rounded-lg my-3'> Play & Earn</button>
                 </div>
-                <div className="mt-8 md:mt-0">
+                <div className="mt-8 md:mt-0 relative w-64 h-auto md:w-[800px] lg:w-[800px]">
                     <img src={MobileInHand} alt="Mobile in Hand"
-                        className="w-64 h-auto md:w-[800px] lg:w-[800px] object-cover" />
+                        className=" object-cover" />
+                        <div  className='absolute h-44 top-48 left-80 rounded-full overflow-hidden'>
+                        <img src={CenterMobile} alt="" className='h-full w-full'  /> 
+                        </div>
+                        
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import WebLogo from "./panter.png";
 import HeroBackground from "./web/herobackground.png";
-import MobileInHand from "./web/enhancedimagee2.png"
+import MobileInHand from "./web/enhancedimageeanimate.png"
 import Network from "./web/network.png";
 import Charity from "./web/charity.png";
 import CharityWhite from "./web/charitywhite.png";
@@ -22,6 +22,7 @@ import NewProduct from "./web/new-product.png";
 import World from "./web/world.png";
 import Launch from "./web/launch.png";
 import Expand from "./web/expand.png";
+import CenterMobile from "./web/1.jpg"
 export {
     WebLogo,
     HeroBackground,
@@ -46,5 +47,6 @@ export {
     NewProduct,
     World,
     Launch,
-    Expand
+    Expand,
+    CenterMobile
 };
