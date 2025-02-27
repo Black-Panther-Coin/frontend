@@ -1,5 +1,5 @@
 import WebLogo from "./panter.png";
-import HeroBackground from "./web/herobackground.png";
+import HeroBackground from "./web/Rectangle230.png";
 import MobileInHand from "./web/enhancedimageeanimate.png"
 import Network from "./web/network.png";
 import Charity from "./web/charity.png";
