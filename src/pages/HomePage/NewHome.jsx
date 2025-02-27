@@ -10,8 +10,9 @@ const NewHome = () => {
     return (
         <div className="">
             {/* Navbar */}
-            <div className="min-h-screen p-2" style={{ background: `url(${HeroBackground}) no-repeat`, backgroundSize: "cover", backgroundPosition: "center" }}>
-                <HeaderNew />
+            <HeaderNew />
+            <div className="min-h-screen  max-h-[100vh] min-w-[100vw] overflow-hidden  mt-20" style={{width:"100vw", background: `url(${HeroBackground}) no-repeat`, backgroundSize: "cover", backgroundPosition: "center" }}>
+              
 
                 <Hero />
 
@@ -22,7 +23,7 @@ const NewHome = () => {
                     <p className='text-black tracking-wider leading-tight text-3xl md:text-[70px] font-semibold'>
                         Unleash the Power Within</p>
                 </div>
-                <div className='bg-black rounded-lg shadow-lg  max-w-[90vw] p-10 flex flex-col md:flex-row gap-5 justify-around'>
+                <div className='bg-black rounded-lg shadow-lg  max-w-[95vw] p-10 flex flex-col md:flex-row gap-5 justify-around'>
                     <div className="max-w-xs bg-[#424240] h-[500px] flex flex-col justify-around rounded-2xl p-2 shadow-xl text-white  overflow-hidden">
 
                         <div className="relative ml-10">
@@ -417,7 +418,7 @@ const CryptoShpere = () => {
 
 const data = [
     { name: 'DEXs', value: 40, color: '#D4A017' },
-    { name: 'CEXs', value: 11, color: '#1ABC9C' },
+    { name: 'CEXs', value: 10, color: '#1ABC9C' },
     { name: 'Treasury', value: 10, color: '#A0522D' },
     { name: 'Marketing', value: 10, color: '#D3D3D3' },
     { name: 'Charity', value: 10, color: '#F5F5F5' },
