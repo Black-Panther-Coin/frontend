@@ -11,8 +11,8 @@ const NewHome = () => {
         <div className="">
             {/* Navbar */}
             <HeaderNew />
-            <div className="min-h-screen  max-h-[100vh] min-w-[100vw] overflow-hidden  mt-20" style={{width:"100vw", background: `url(${HeroBackground}) no-repeat`, backgroundSize: "cover", backgroundPosition: "center" }}>
-              
+            <div className="min-h-screen  max-h-[100vh] w-[100vw] overflow-hidden  mt-20" style={{ width: "100%", background: `url(${HeroBackground}) no-repeat`, backgroundSize: "cover", backgroundPosition: "center" }}>
+
 
                 <Hero />
 
@@ -23,7 +23,7 @@ const NewHome = () => {
                     <p className='text-black tracking-wider leading-tight text-3xl md:text-[70px] font-semibold'>
                         Unleash the Power Within</p>
                 </div>
-                <div className='bg-black rounded-lg shadow-lg  max-w-[95vw] p-10 flex flex-col md:flex-row gap-5 justify-around'>
+                <div className='bg-black rounded-lg shadow-lg  sm:max-w-[96vw] p-10 flex flex-col md:flex-row gap-5 justify-around'>
                     <div className="max-w-xs bg-[#424240] h-[500px] flex flex-col justify-around rounded-2xl p-2 shadow-xl text-white  overflow-hidden">
 
                         <div className="relative ml-10">
@@ -372,43 +372,48 @@ const CryptoShpere = () => {
     ];
     return (
 
-
-
-        <div className="flex flex-col md:flex-row items-center justify-center py-12 bg-[#F8F5ED]">
-            {/* Left Section - Steps */}
-            <div className="flex flex-col gap-8">
-                {steps.map((step) => (
-                    <div key={step.number} className=" relative flex items-center gap-4">
-                        <div className="absolute top-0 right-0 flex items-center justify-center w-12 h-12 bg-[#571C86] text-white rounded-full shadow-lg">
-                            <img src={step.icon} alt={step.title} className='h-6 w-6' />
-                        </div>
-                        <div className="bg-white shadow-lg rounded-xl h-24 p-4 w-64">
-                            <h3 className="font-bold text-sm text-black"> {step.title}</h3>
-                        </div>
-                    </div>
-                ))}
+        <>
+            <div className='max-w-3xl h-auto mx-2 md:ml-20 py-5'>
+                <p className='text-black tracking-wider leading-tight text-3xl md:text-[70px] font-semibold'>
+                    Road to the Black Panther Cryptosphere          </p>
             </div>
-
-            <svg width="129" height="702" viewBox="0 0 129 702" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M127 1C127 1 30.9418 118.725 25 209C18.1222 313.496 130.951 352.353 127 457C122.954 564.167 1 701 1 701" stroke="url(#paint0_linear_1996_10)" stroke-width="2" />
-                <defs>
-                    <linearGradient id="paint0_linear_1996_10" x1="64.0507" y1="1" x2="64.0507" y2="701" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#571C86" />
-                        <stop offset="1" stop-color="#150720" stop-opacity="0" />
-                    </linearGradient>
-                </defs>
-            </svg>
+            <div className="flex  items-start justify-center  bg-[#F8F5ED]">
 
 
-            {/* Right Section - Descriptions */}
-            <div className="flex flex-col gap-8 min-h-[70vh]">
-                {steps.map((step) => (
-                    <div key={step.number} className="max-w-xs">
-                        <p className="text-gray-700 font-semibold text-sm">{step.description}</p>
-                    </div>
-                ))}
+                <div className="flex flex-col gap-8">
+                    {steps.map((step) => (
+                        <div key={step.number} className=" relative flex items-center gap-0 md:gap-4">
+                            <div className="absolute top-0 right-0 flex items-center justify-center h-10 w-10 md:w-12 md:h-12 bg-[#571C86] text-white rounded-full shadow-lg">
+                                <img src={step.icon} alt={step.title} className='md:h-6  md:w-6 h-4 w-4' />
+                            </div>
+                            <div className="bg-white shadow-lg rounded-xl h-16 md:h-24 p-4  md:w-64">
+                                <h3 className="font-bold text-[13px] md:text-sm text-black"> {step.title}</h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <svg width="129" className='-mt-40 sm:mt-0' height="702" viewBox="0 0 129 702" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M127 1C127 1 30.9418 118.725 25 209C18.1222 313.496 130.951 352.353 127 457C122.954 564.167 1 701 1 701" stroke="url(#paint0_linear_1996_10)" stroke-width="2" />
+                    <defs>
+                        <linearGradient id="paint0_linear_1996_10" x1="64.0507" y1="1" x2="64.0507" y2="701" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#571C86" />
+                            <stop offset="1" stop-color="#150720" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+
+                {/* Right Section - Descriptions */}
+                <div className="flex flex-col gap-8 min-h-[70vh]">
+                    {steps.map((step) => (
+                        <div key={step.number} className="max-w-xs">
+                            <p className="text-gray-700 font-semibold text-xs md:text-sm">{step.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

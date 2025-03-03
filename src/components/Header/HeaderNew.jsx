@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { WebLogo } from '../../assets';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const HeaderNew = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,16 +37,17 @@ const HeaderNew = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 text-white font-medium">
           {['Home', 'About', 'DAO', 'Lottery', 'Game'].map((item) => (
-            <a
-              key={item}
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-              className={`hover:text-purple-400 transition duration-300 ${
-                activeNav === item ? 'border-b-2 border-purple-500' : ''
-              }`}
-              onClick={() => setActiveNav(item)}
-            >
-              {item}
-            </a>
+           <Link
+           key={item}
+           to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+           className={`hover:text-purple-400 transition duration-300 ${
+             activeNav === item ? 'border-b-2 border-purple-500' : ''
+           }`}
+           onClick={() => setActiveNav(item)}
+         >
+           {item}
+         </Link>
+         
           ))}
         </div>
 
@@ -62,19 +64,17 @@ const HeaderNew = () => {
       {menuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md flex flex-col items-center space-y-4 pt-24 z-40 transition-all duration-500">
           {['Home', 'About', 'DAO', 'Lottery', 'Game'].map((item) => (
-            <a
-              key={item}
-              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-              className={`text-white font-bold text-lg hover:text-purple-400 transition ${
-                activeNav === item ? 'underline underline-offset-4 decoration-purple-500' : ''
-              }`}
-              onClick={() => {
-                setActiveNav(item);
-                setMenuOpen(false);
-              }}
-            >
-              {item}
-            </a>
+            <Link
+            key={item}
+            to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+            className={`hover:text-purple-400 transition duration-300 ${
+              activeNav === item ? 'border-b-2 border-purple-500' : ''
+            }`}
+            onClick={() => setActiveNav(item)}
+          >
+            {item}
+          </Link>
+          
           ))}
         </div>
       )}

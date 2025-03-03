@@ -26,14 +26,14 @@ const Hero = () => {
                 {/* Right Side Image - Always at Bottom */}
                 <div className="relative md:h-screen   w-full">
                     {/* Background Image */}
-                    <img src={MobileInHand} alt="Mobile in Hand" className=" w-full h-full mt-40 md:mt-20" />
+                    <img src={MobileInHand} alt="Mobile in Hand" className=" w-full h-full mt-24 md:mt-20" />
 
                     {/* Center Image (Properly Centered) */}
-                    <div className="absolute inset-x-0 bottom-[54%] md:bottom-[45%] flex justify-center">
+                    <div className="absolute inset-x-0 bottom-[40%] md:bottom-[45%] flex justify-center">
                         <img
                             src={CenterMobile}
                             alt="Center Mobile"
-                            className="h-20 sm:h-36  w-auto rounded-full"
+                            className="h-16 sm:h-36  w-auto rounded-full"
                         />
                     </div>
                 </div>
