@@ -23,6 +23,7 @@ import World from "./web/world.png";
 import Launch from "./web/launch.png";
 import Expand from "./web/expand.png";
 import CenterMobile from "./web/1.jpg"
+import Auth from "./web/Auth.png";
 export {
     WebLogo,
     HeroBackground,
@@ -48,5 +49,6 @@ export {
     World,
     Launch,
     Expand,
-    CenterMobile
+    CenterMobile,
+    Auth
 };

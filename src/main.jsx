@@ -19,6 +19,7 @@ import BuyToken from "./components/BuyTokens/BuyToken.jsx";
 import PaymentFailed from "./components/BuyTokens/PaymentFailed.jsx";
 import CountDown from "./components/CountDown/CountDown";
 import About from "./pages/About.jsx";
+import Presale from "./pages/HomePage/Presale.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />
+  },
+  {
+    path:"/presale2",
+    element:<Presale />
   }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
