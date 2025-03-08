@@ -19,6 +19,7 @@ import BuyToken from "./components/BuyTokens/BuyToken.jsx";
 import PaymentFailed from "./components/BuyTokens/PaymentFailed.jsx";
 import CountDown from "./components/CountDown/CountDown";
 import About from "./pages/About.jsx";
+import Presale from "./pages/presale.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
     element: <Dao />
   },
   {
-    path: "/presale",
+    path: "/presale_old",
     element: <LandingPage />
+  },
+  {
+    path: "/presale",
+    element: <Presale />
   },
   {
     path: "/lottery",
